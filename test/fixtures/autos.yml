@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  title: MyString
+  make: MyString
+  model: MyString
+  auto_year: 1
+  current_odometer: 1
+  oil_change_frequence: 1
+  tire_rotation_frequency: 1
+
+two:
+  user: two
+  title: MyString
+  make: MyString
+  model: MyString
+  auto_year: 1
+  current_odometer: 1
+  oil_change_frequence: 1
+  tire_rotation_frequency: 1
