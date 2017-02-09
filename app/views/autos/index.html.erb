@@ -1,0 +1,46 @@
+<!-- 
+<p id="notice"><%= notice %></p>
+
+-->
+
+
+<h1>Autos</h1>
+
+<table>
+ <thead>
+  <tr>
+    <th>Title</th>
+    <th>User</th>
+    <th>Make</th>
+    <th>Model</th>
+    <th>Year</th>
+    <th>Odometer</th>
+    <th>Oil Change Frequency</th>
+    <th>Tire Rotation Frequency</th>
+    <th>Last Updated</th>
+    <th colspan="2">&nbsp;</th>
+  </tr>
+ </thead>
+ 
+ <tbody>
+  <% @autos.each do |auto| %>
+    <tr>
+      <td><%= link_to auto.title, auto %></td>
+      <td><%= auto.user.username rescue "No user" %></td>
+      <td><%= link_to auto.make, auto %></td>
+      <td><%= link_to auto.model, auto %></td>
+      <td><%= link_to auto.auto_year, auto %></td>
+      <td><%= link_to auto.current_odometer, auto %></td>
+      <td><%= link_to auto.oil_change_frequency, auto %></td>      
+      <td><%= link_to auto.tire_rotation_frequency, auto %></td>      
+      <td><%= time_ago_in_words(auto.updated_at) %> ago</td>
+      <td><%= link_to 'Edit', edit_auto_path(auto) %></td>
+      <td><%= button_to 'Destroy', auto, confirm: 'Are you sure?', method: :delete %></td>
+    </tr>
+  <% end %>
+ </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New auto', new_auto_path %>

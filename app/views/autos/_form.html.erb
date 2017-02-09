@@ -1,0 +1,54 @@
+<%= form_for(auto) do |f| %>
+  <% if auto.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(auto.errors.count, "error") %> prohibited this auto from being saved:</h2>
+
+      <ul>
+      <% auto.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  
+  <div class="field">
+    <%= f.label :user_id %><br />
+    <%= f.select :user_id, @users, :include_blank => true %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= f.label :make %>
+    <%= f.text_area :make %>
+  </div>
+
+  <div class="field">
+    <%= f.label :model %>
+    <%= f.text_area :model %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :auto_year %>
+    <%= f.text_area :auto_year %>
+  </div>
+
+  <div class="field">
+    <%= f.label :oil_change_frequency %>
+    <%= f.text_area :oil_change_frequency %>
+  </div>
+
+  <div class="field">
+    <%= f.label :tire_rotation_frequency %>
+    <%= f.text_area :tire_rotation_frequency %>
+  </div>
+   
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+  
+<% end %>

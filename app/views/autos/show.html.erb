@@ -1,0 +1,36 @@
+<article>
+ <header>
+	<h2>
+		<%= @auto.title %>
+		[ <%= link_to 'Edit', edit_auto_path(@auto) %> ]
+	</h2>
+ </header>
+ 
+ <h3>Title:</h3>
+ <p><%= @auto.title %></p>
+ 
+ <p>User: <%= h(@auto.user.username) rescue 'No user found' %></p>
+ 
+ <h3>Make</h3>
+ <p><%= @auto.make %></p>
+ 
+ <h3>Model</h3>
+ <p><%= @auto.model %></p>
+ 
+ <h3>Year</h3>
+ <p><%= @auto.auto_year %></p>
+ 
+ <h3>Odometer</h3>
+ <p><%= @auto.current_odometer %></p>
+ 
+ <h3>Oil Change Frequency</h3>
+ <p><%= @auto.oil_change_frequency %></p>
+ 
+ <h3>Tire Rotation Frequency</h3>
+ <p><%= @auto.tire_rotation_frequency %></p>
+ 
+ 
+ 
+</article>
+
+<p><%= link_to 'Back', autos_path %></p>
