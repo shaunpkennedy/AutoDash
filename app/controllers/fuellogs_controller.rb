@@ -1,7 +1,7 @@
 class FuellogsController < ApplicationController
   before_action :set_fuellog, only: [:show, :edit, :update, :destroy]
   before_action :get_autos, :only =>[:new, :edit, :create, :update]
-  #before_action :authenticate, :except => [:index, :show]
+  before_action :authenticate, :except => [:index, :show]
   
   # GET /fuellogs
   # GET /fuellogs.json

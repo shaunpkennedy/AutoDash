@@ -1,7 +1,7 @@
 class AutosController < ApplicationController
   before_action :set_auto, only: [:show, :edit, :update, :destroy]
   before_action :get_users, :only =>[:new, :edit, :create, :update]
-  #before_action :authenticate
+  before_action :authenticate
   
   # GET /autos
   # GET /autos.json
