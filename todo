@@ -18,4 +18,10 @@ View statistics
 --when click add fuel log for auto, prefill auto 
 --same for service log
 -prefill auto 
+-add checks
+--is current mileage within so many miles of last log? 
+--more than last odometer reading
+
+
+
 

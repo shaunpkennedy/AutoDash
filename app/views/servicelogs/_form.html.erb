@@ -1,0 +1,44 @@
+<%= form_for(servicelog) do |f| %>
+  <% if servicelog.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(servicelog.errors.count, "error") %> prohibited this servicelog from being saved:</h2>
+
+      <ul>
+      <% servicelog.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  
+  <div class="field">
+    <%= f.label :auto_id %><br />
+    <%= f.select :auto_id, @autos, :include_blank => true %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :log_date %>
+    <%= f.date_field :log_date %>
+  </div>
+
+  <div class="field">
+    <%= f.label :odometer %>
+    <%= f.text_area :odometer %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :total_cost %>
+    <%= f.text_area :total_cost %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :notes %>
+    <%= f.text_area :notes %>
+  </div>
+   
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+  
+<% end %>

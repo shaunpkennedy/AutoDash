@@ -1,0 +1,23 @@
+<article>
+ <header>
+	<h2>
+		<%= @servicelog.log_date %>
+		[ <%= link_to 'Edit', edit_servicelog_path(@servicelog) %> ]
+	</h2>
+ </header>
+ 
+ <h3>Odometer:</h3>
+ <p><%= @servicelog.odometer %></p>
+ 
+ <p>Auto: <%= h(@servicelog.auto.title) rescue 'No auto found' %></p>
+ 
+ <h3>Total Cost</h3>
+ <p><%= @servicelog.total_cost %></p>
+
+ <h3>Notes</h3>
+ <p><%= @servicelog.notes %></p>
+ 
+ 
+</article>
+
+<p><%= link_to 'Back', servicelogs_path %></p>
