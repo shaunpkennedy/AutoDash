@@ -1,0 +1,21 @@
+Add fuel log
+Add service log
+Admin can only see users
+Home page, log in or register
+unit test
+unit test
+unit test
+View statistics
+-overall mpg
+-cost per mile
+-total cost
+-last mpg
+-miles to rotation
+-miles to next oil change
+-log as popout window
+-page/tab titles
+-after log in, show autos and stats
+--when click add fuel log for auto, prefill auto 
+--same for service log
+-prefill auto 
+

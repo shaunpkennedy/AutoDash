@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   
+  resources :fuellogs
   resources :autos
   resources :users
+  get "/admin", to: 'admin#index', as: 'admin'
   get "/about", to: 'home#about', as: 'about'
   root to: 'home#index'
 

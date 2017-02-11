@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170209020248) do
+ActiveRecord::Schema.define(version: 20170211181938) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 20170209020248) do
     t.index ["user_id"], name: "index_autos_on_user_id", using: :btree
   end
 
-  create_table "fuel_logs", force: :cascade do |t|
+  create_table "fuellogs", force: :cascade do |t|
     t.integer  "auto_id"
     t.datetime "log_date"
     t.integer  "odometer"
@@ -38,10 +38,16 @@ ActiveRecord::Schema.define(version: 20170209020248) do
     t.decimal  "total_cost"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["auto_id"], name: "index_fuel_logs_on_auto_id", using: :btree
+    t.index ["auto_id"], name: "index_fuellogs_on_auto_id", using: :btree
   end
 
-  create_table "service_logs", force: :cascade do |t|
+  create_table "service_types", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "servicelogs", force: :cascade do |t|
     t.integer  "auto_id"
     t.datetime "log_date"
     t.integer  "service_type_id"
@@ -50,11 +56,11 @@ ActiveRecord::Schema.define(version: 20170209020248) do
     t.text     "notes"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
-    t.index ["auto_id"], name: "index_service_logs_on_auto_id", using: :btree
-    t.index ["service_type_id"], name: "index_service_logs_on_service_type_id", using: :btree
+    t.index ["auto_id"], name: "index_servicelogs_on_auto_id", using: :btree
+    t.index ["service_type_id"], name: "index_servicelogs_on_service_type_id", using: :btree
   end
 
-  create_table "service_types", force: :cascade do |t|
+  create_table "servicetypes", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -68,7 +74,7 @@ ActiveRecord::Schema.define(version: 20170209020248) do
   end
 
   add_foreign_key "autos", "users"
-  add_foreign_key "fuel_logs", "autos"
-  add_foreign_key "service_logs", "autos"
-  add_foreign_key "service_logs", "service_types"
+  add_foreign_key "fuellogs", "autos"
+  add_foreign_key "servicelogs", "autos"
+  add_foreign_key "servicelogs", "service_types"
 end

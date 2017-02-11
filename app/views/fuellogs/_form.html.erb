@@ -1,0 +1,49 @@
+<%= form_for(fuellog) do |f| %>
+  <% if fuellog.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(fuellog.errors.count, "error") %> prohibited this fuellog from being saved:</h2>
+
+      <ul>
+      <% fuellog.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  
+  <div class="field">
+    <%= f.label :auto_id %><br />
+    <%= f.select :auto_id, @autos, :include_blank => true %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :log_date %>
+    <%= f.date_field :log_date %>
+  </div>
+
+  <div class="field">
+    <%= f.label :odometer %>
+    <%= f.text_area :odometer %>
+  </div>
+
+  <div class="field">
+    <%= f.label :ppg %>
+    <%= f.text_area :ppg %>
+  </div>
+  
+   <div class="field">
+    <%= f.label :gallons %>
+    <%= f.text_area :gallons %>
+  </div>
+  
+   <div class="field">
+    <%= f.label :total_cost %>
+    <%= f.text_area :total_cost %>
+  </div>
+   
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+  
+<% end %>

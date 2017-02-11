@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+<% if logged_in? %>
+ You are logged in as <%= current_user.username %>
+<% end %>
+
+<h1>Fuellogs</h1>
+
+<table>
+ <thead>
+  <tr>
+    <th>Auto</th>
+    <th>Date</th>
+    <th>Odometer</th>
+    <th>PPG</th>
+    <th>Gallons</th>
+    <th>Total Cost</th>
+    <th>Last Updated</th>
+    <th colspan="2">&nbsp;</th>
+  </tr>
+ </thead>
+ 
+ <tbody>
+  <% @fuellogs.each do |fuellog| %>
+    <tr>
+      <td><%= fuellog.auto.title rescue "No auto found" %></td>
+      <td><%= link_to fuellog.log_date, fuellog %></td>
+      <td><%= link_to fuellog.odometer, fuellog %></td>
+      <td><%= link_to fuellog.ppg, fuellog %></td>
+      <td><%= link_to fuellog.gallons, fuellog %></td>
+      <td><%= link_to fuellog.total_cost, fuellog %></td>     
+      <td><%= time_ago_in_words(fuellog.updated_at) %> ago</td>
+      <td><%= link_to 'Edit', edit_fuellog_path(fuellog) %></td>
+      <td><%= button_to 'Destroy', fuellog, confirm: 'Are you sure?', method: :delete %></td>
+    </tr>
+  <% end %>
+ </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New fuellog', new_fuellog_path %>

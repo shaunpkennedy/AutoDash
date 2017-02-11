@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Autodash</title>
+    <title><%= @title %></title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -9,6 +9,29 @@
   </head>
 
   <body>
-    <%= yield %>
+	<div class="container">
+		<header>
+			<h1>Auto Dashboard</h1>
+		</header>
+		<main class="content">
+			<nav>
+				<%= link_to_unless_current 'Home', root_url %>
+				<%= link_to_unless_current 'Users', users_url %>
+				<%= link_to_unless_current 'Autos', autos_url %>
+				<%= link_to_unless_current 'Fuel Logs', fuellogs_url %>
+			</nav>
+			
+			<% if notice %>
+				<div id="notice">
+					<%= notice %>
+				</div>
+			<% end %>
+
+			<%= yield %>
+		</main>
+		<footer>
+			<h4>Copyright <%=Date.today.year %> AutoDash</h4>
+		</footer>
+	</div>
   </body>
 </html>
