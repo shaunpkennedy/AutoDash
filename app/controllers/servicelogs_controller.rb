@@ -1,6 +1,7 @@
 class ServicelogsController < ApplicationController
   before_action :set_servicelog, only: [:show, :edit, :update, :destroy]
   before_action :get_autos, :only =>[:new, :edit, :create, :update]
+  before_action :get_servicetypes, :only =>[:new, :edit, :create, :update]
   before_action :authenticate, :except => [:index, :show]
   
   # GET /servicelogs
@@ -71,12 +72,16 @@ class ServicelogsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def servicelog_params
-      params.require(:servicelog).permit(:log_date, :auto_id, :odometer, :total_cost, :notes)
+      params.require(:servicelog).permit(:log_date, :auto_id, :odometer, :service_type_id, :total_cost, :notes)
     end
       
   def get_autos
    @autos = Auto.all.collect{|a| [a.title, a.id] }
-  end          
+  end         
+
+  def get_servicetypes
+   @service_types = ServiceType.all.collect{|s| [s.name, s.id] }
+  end    
   
   private
     def login(username, password)

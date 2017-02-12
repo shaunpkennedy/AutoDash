@@ -8,10 +8,10 @@
 
 
 # Servoce Types
-Servicetype.create name: 'Oil Change'
-Servicetype.create name: 'Tire Rotation'
-Servicetype.create name: 'Filter'
-Servicetype.create name: 'Service'
-Servicetype.create name: 'Other'
+ServiceType.create name: 'Oil Change'
+ServiceType.create name: 'Tire Rotation'
+ServiceType.create name: 'Filter'
+ServiceType.create name: 'Service'
+ServiceType.create name: 'Other'
 
 puts 'Created service types.'

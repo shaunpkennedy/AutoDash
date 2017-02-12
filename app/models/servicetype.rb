@@ -1,2 +1,0 @@
-class Servicetype < ApplicationRecord
-end

@@ -6,10 +6,12 @@
 	</h2>
  </header>
  
+ <p>Auto: <%= h(@servicelog.auto.title) rescue 'No auto found' %></p>
+ 
  <h3>Odometer:</h3>
  <p><%= @servicelog.odometer %></p>
  
- <p>Auto: <%= h(@servicelog.auto.title) rescue 'No auto found' %></p>
+ <p>Service Type: <%= h(@servicelog.service_type.name) rescue 'No service found' %></p>
  
  <h3>Total Cost</h3>
  <p><%= @servicelog.total_cost %></p>

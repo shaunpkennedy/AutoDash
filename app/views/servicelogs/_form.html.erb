@@ -28,6 +28,11 @@
   </div>
   
   <div class="field">
+   <%= f.label :service_type_id %><br />
+   <%= f.select :service_type_id, @service_types, :include_blank => true %>
+  </div>  
+  
+  <div class="field">
     <%= f.label :total_cost %>
     <%= f.text_area :total_cost %>
   </div>
