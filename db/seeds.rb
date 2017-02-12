@@ -5,3 +5,13 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+
+# Servoce Types
+Servicetype.create name: 'Oil Change'
+Servicetype.create name: 'Tire Rotation'
+Servicetype.create name: 'Filter'
+Servicetype.create name: 'Service'
+Servicetype.create name: 'Other'
+
+puts 'Created service types.'
