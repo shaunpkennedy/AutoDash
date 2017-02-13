@@ -3,15 +3,15 @@
 one:
   auto: one
   log_date: 2017-02-11 12:14:11
-  odometer: 1
-  ppg: 9.99
-  gallons: 9.99
-  total_cost: 9.99
+  odometer: 33987
+  ppg: 3.99
+  gallons: 19.99
+  total_cost: 19.99
 
 two:
   auto: two
   log_date: 2017-02-11 12:14:11
-  odometer: 1
-  ppg: 9.99
+  odometer: 34511
+  ppg: 2.99
   gallons: 9.99
-  total_cost: 9.99
+  total_cost: 29.99

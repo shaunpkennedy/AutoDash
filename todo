@@ -22,7 +22,7 @@ View statistics
 --is current mileage within so many miles of last log? 
 --more than last odometer reading
 -destroy doesn't delete, but disables account
-
+-calculate total cost
 
 
 

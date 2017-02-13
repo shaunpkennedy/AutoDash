@@ -58,6 +58,12 @@ development:
 test:
   <<: *default
   database: autodash_test
+  username: postgres
+  password: Maya2003!p
+  host: localhost
+  port: 5432
+  schema_search_path: myapp,sharedapp,public
+  min_messages: notice  
 
 # As with config/secrets.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is

@@ -2,20 +2,20 @@
 
 one:
   user: one
-  title: MyString
-  make: MyString
-  model: MyString
-  auto_year: 1
-  current_odometer: 1
-  oil_change_frequence: 1
-  tire_rotation_frequency: 1
+  title: Test Car One
+  make: Honda
+  model: CR-V
+  auto_year: 2011
+  current_odometer: 50123
+  oil_change_frequency: 8000
+  tire_rotation_frequency: 10000
 
 two:
   user: two
-  title: MyString
-  make: MyString
-  model: MyString
-  auto_year: 1
-  current_odometer: 1
-  oil_change_frequence: 1
-  tire_rotation_frequency: 1
+  title: Test Car Two
+  make: Toyota
+  model: Sienna
+  auto_year: 2005
+  current_odometer: 103,500
+  oil_change_frequency: 5000
+  tire_rotation_frequency: 7500

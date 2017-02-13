@@ -3,15 +3,24 @@
 one:
   auto: one
   log_date: 2017-02-11 12:14:51
-  service_type: one
-  odometer: 1
-  total_cost: 9.99
-  notes: MyText
+  service_type_id: one
+  odometer: 49,999
+  total_cost: 19.99
+  notes: Testing one
 
 two:
   auto: two
-  log_date: 2017-02-11 12:14:51
-  service_type: two
-  odometer: 1
+  log_date: 2017-02-12 12:24:21
+  service_type_id: two
+  odometer: 50,123
   total_cost: 9.99
-  notes: MyText
+  notes: Testing two
+
+three:
+  auto: one
+  log_date: 2017-02-13 12:24:21
+  service_type_id: one
+  odometer: 50,455
+  total_cost: 149.99
+  notes: Testing three
+ 

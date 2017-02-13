@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  has_many :auto
+
   has_secure_password
   
   def self.authenticate(username, password)

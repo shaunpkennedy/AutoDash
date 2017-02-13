@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170212144843) do
+ActiveRecord::Schema.define(version: 20170212181451) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 20170212144843) do
     t.string   "model"
     t.integer  "auto_year"
     t.integer  "current_odometer"
-    t.integer  "oil_change_frequency"
+    t.integer  "oil_change_frequence"
     t.integer  "tire_rotation_frequency"
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
@@ -57,7 +57,7 @@ ActiveRecord::Schema.define(version: 20170212144843) do
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
     t.index ["auto_id"], name: "index_servicelogs_on_auto_id", using: :btree
-    t.index ["service_type_id"], name: "index_servicelogs_on_servicetype_id", using: :btree
+    t.index ["service_type_id"], name: "index_servicelogs_on_service_type_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
@@ -70,4 +70,5 @@ ActiveRecord::Schema.define(version: 20170212144843) do
   add_foreign_key "autos", "users"
   add_foreign_key "fuellogs", "autos"
   add_foreign_key "servicelogs", "autos"
+  add_foreign_key "servicelogs", "service_types"
 end

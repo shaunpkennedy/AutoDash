@@ -7,7 +7,7 @@ class CreateAutos < ActiveRecord::Migration[5.0]
       t.string :model
       t.integer :auto_year
       t.integer :current_odometer
-      t.integer :oil_change_frequence
+      t.integer :oil_change_frequency
       t.integer :tire_rotation_frequency
 
       t.timestamps
