@@ -23,6 +23,14 @@ class FuellogsControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to fuellog_url(Fuellog.last)
   end
 
+  test "should not create fuellog when missing odometer" do
+    assert_no_difference('Fuellog.count') do
+      post fuellogs_url, params: { fuellog: { auto_id: Auto.first.id, log_date: "2017-02-11 1:14:11", ppg: 1.399, gallons: 13.445, total_cost: 10.99} }, headers: {'HTTP_AUTHORIZATION' => login("controlleruser", "controllerpassword") }
+    end
+    
+    assert_response :success
+  end
+  
   test "should show fuellog" do
     get fuellog_url(Fuellog.last), headers: {'HTTP_AUTHORIZATION' => login("controlleruser", "controllerpassword") }
     assert_response :success

@@ -1,10 +1,7 @@
-unit test
 Admin can only see users
+bad controller tests not saving
 Home page, log in or register
 filter for signed in user
-unit test
-unit test
-unit test
 View statistics
 -overall mpg
 -cost per mile
@@ -23,6 +20,6 @@ View statistics
 --more than last odometer reading
 -destroy doesn't delete, but disables account
 -calculate total cost
-
+-styles
 
 

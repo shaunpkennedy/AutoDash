@@ -1,7 +1,7 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  user: one
+crv:
+  user: shaun
   title: Test Car One
   make: Honda
   model: CR-V
@@ -10,12 +10,21 @@ one:
   oil_change_frequency: 8000
   tire_rotation_frequency: 10000
 
-two:
-  user: two
+sienna:
+  user: paul
   title: Test Car Two
   make: Toyota
   model: Sienna
   auto_year: 2005
   current_odometer: 103,500
+  oil_change_frequency: 5000
+  tire_rotation_frequency: 7500
+
+pilot:
+  title: Honda Fixture 
+  make: Honda
+  model: Pilot
+  auto_year: 2016
+  current_odometer: 13,500
   oil_change_frequency: 5000
   tire_rotation_frequency: 7500

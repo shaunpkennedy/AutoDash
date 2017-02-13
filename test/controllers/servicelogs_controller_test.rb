@@ -17,11 +17,19 @@ class ServicelogsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create servicelog" do
     assert_difference('Servicelog.count') do
-      post servicelogs_url, params: { servicelog: { auto_id: Auto.first.id, log_date: "2017-02-12 2:01:01", service_type_id: ServiceType.first.id, total_cost: 10.99} }, headers: {'HTTP_AUTHORIZATION' => login("controlleruser", "controllerpassword") }
+      post servicelogs_url, params: { servicelog: { auto_id: Auto.first.id, log_date: "2017-02-12 2:01:01", odometer: 69875, service_type_id: ServiceType.first.id, total_cost: 10.99} }, headers: {'HTTP_AUTHORIZATION' => login("controlleruser", "controllerpassword") }
     end
     
     assert_redirected_to servicelog_url(Servicelog.last)
   end
+  
+  test "should not create servicelog when missing auto id" do
+    assert_no_difference('Servicelog.count') do
+      post servicelogs_url, params: { servicelog: { log_date: "2017-02-12 2:01:01", odometer: 69875, service_type_id: ServiceType.first.id, total_cost: 10.99} }, headers: {'HTTP_AUTHORIZATION' => login("controlleruser", "controllerpassword") }
+    end
+    
+    assert_response :success
+  end  
 
   test "should show servicelog" do
     get servicelog_url(Servicelog.last), headers: {'HTTP_AUTHORIZATION' => login("controlleruser", "controllerpassword") }

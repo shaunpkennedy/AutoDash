@@ -23,6 +23,14 @@ class AutosControllerTest < ActionDispatch::IntegrationTest
     
     assert_redirected_to auto_url(Auto.last)
   end
+  
+   test "should not create auto when missing user id" do
+    assert_no_difference('Auto.count') do
+      post autos_url, params: { auto: { title: "auto two", oil_change_frequency: 3000, tire_rotation_frequency: 5000 } }, headers: {'HTTP_AUTHORIZATION' => login("controlleruser", "controllerpassword") }
+    end
+    
+    assert_response :success
+  end
 
   test "should show auto" do
     get auto_url(Auto.last), headers: {'HTTP_AUTHORIZATION' => login("controlleruser", "controllerpassword") }

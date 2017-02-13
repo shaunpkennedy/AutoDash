@@ -3,7 +3,7 @@ require 'test_helper'
 class AutoTest < ActiveSupport::TestCase
 
   def setup
-    @auto = Auto.order("title").first
+    @auto = autos(:pilot)
   end
 
   test "should not save unless user id is filled in" do
@@ -26,10 +26,19 @@ class AutoTest < ActiveSupport::TestCase
   end
  
   test "association of one auto and one fuel log" do
-    assert_equal 1, @auto.fuellogs.size
+    @auto.fuellogs << fuellogs(:fillup)
+    @auto.save
+    
+    assert_equal 1, @auto.reload.fuellogs.size
   end
-
+  
   test "association of one auto and two service logs" do
-    assert_equal 2, @auto.servicelogs.size
-  end  
+  
+    @auto.servicelogs << servicelogs(:walmartoilchange)
+    @auto.servicelogs << servicelogs(:samstirerotation)
+    @auto.save
+    
+    assert_equal 2, @auto.reload.servicelogs.size
+  end 
+  
 end

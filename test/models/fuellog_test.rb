@@ -2,10 +2,6 @@ require 'test_helper'
 
 class FuellogTest < ActiveSupport::TestCase
 
-  def setup
-    @fuellog = Fuellog.order("odometer").first
-  end
-
   test "should not save unless auto id is filled in" do
     fuellog = Fuellog.new
     assert !fuellog.save
@@ -25,7 +21,8 @@ class FuellogTest < ActiveSupport::TestCase
   end
   
   test "should only have one fuellog with the same name" do
-    fuellog = Fuellog.new(:odometer => 34511)
+    aOdometer = fuellogs(:siennafillup).odometer
+    fuellog = Fuellog.new(:odometer => aOdometer)
     fuellog.save
     fuellog.valid?
     assert fuellog.errors[:odometer].include?("must be unique")
