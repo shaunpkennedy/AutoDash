@@ -2,23 +2,25 @@ require 'test_helper'
 
 class AutosControllerTest < ActionDispatch::IntegrationTest
   setup do
-    #@auto =  Auto.create :user_id => 980190962 :title => "controller auto test", :make => "Chevy", :model =>  "Cavalier", :oil_change_frequency =>  3000, :tire_rotation_frequency =>  10000
     @user = User.create :username => "controlleruser", :password => "controllerpassword", :password_confirmation =>  "controllerpassword"
   end
 
   test "should get index" do
-    get autos_url, headers: {'HTTP_AUTHORIZATION' => login("controlleruser", "controllerpassword") }
+    login(@user.username, @user.password)
+    get autos_url
     assert_response :success
   end
 
   test "should get new" do
-    get new_auto_url, headers: {'HTTP_AUTHORIZATION' => login("controlleruser", "controllerpassword") }
+    login(@user.username, @user.password)
+    get new_auto_url
     assert_response :success
   end
 
   test "should create auto" do
     assert_difference('Auto.count') do
-      post autos_url, params: { auto: { user_id: @user.id, title: "auto two", oil_change_frequency: 3000, tire_rotation_frequency: 5000 } }, headers: {'HTTP_AUTHORIZATION' => login("controlleruser", "controllerpassword") }
+      login(@user.username, @user.password)
+      post autos_url, params: { auto: { user_id: @user.id, title: "auto two", oil_change_frequency: 3000, tire_rotation_frequency: 5000 } }
     end
     
     assert_redirected_to auto_url(Auto.last)
@@ -26,24 +28,28 @@ class AutosControllerTest < ActionDispatch::IntegrationTest
   
    test "should not create auto when missing user id" do
     assert_no_difference('Auto.count') do
-      post autos_url, params: { auto: { title: "auto two", oil_change_frequency: 3000, tire_rotation_frequency: 5000 } }, headers: {'HTTP_AUTHORIZATION' => login("controlleruser", "controllerpassword") }
+      login(@user.username, @user.password)
+      post autos_url, params: { auto: { title: "auto two", oil_change_frequency: 3000, tire_rotation_frequency: 5000 } }
     end
     
     assert_response :success
   end
 
   test "should show auto" do
-    get auto_url(Auto.last), headers: {'HTTP_AUTHORIZATION' => login("controlleruser", "controllerpassword") }
+    login(@user.username, @user.password)
+    get auto_url(Auto.last)
     assert_response :success
   end
 
   test "should get edit" do
-    get edit_auto_url(Auto.last), headers: {'HTTP_AUTHORIZATION' => login("controlleruser", "controllerpassword") }
+    login(@user.username, @user.password)
+    get edit_auto_url(Auto.last)
     assert_response :success
   end
 
   test "should update auto" do
-    patch auto_url(Auto.last), params: { auto: { title: "Modified Controller Auto", make: "Ford", model: "Mustang", current_odometer: 5000 } }, headers: {'HTTP_AUTHORIZATION' => login("controlleruser", "controllerpassword") }
+    login(@user.username, @user.password)
+    patch auto_url(Auto.last), params: { auto: { title: "Modified Controller Auto", make: "Ford", model: "Mustang", current_odometer: 5000 } }
     assert_redirected_to auto_url(Auto.last)
   end
 
@@ -59,7 +65,7 @@ class AutosControllerTest < ActionDispatch::IntegrationTest
   
  private
   def login(username, password)
-    credentials = ActionController::HttpAuthentication::Basic.encode_credentials username, password
+    post login_url, params: { username: "controlleruser", password: "controllerpassword" }
   end
-  
+     
 end

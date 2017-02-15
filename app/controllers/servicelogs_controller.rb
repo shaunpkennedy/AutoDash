@@ -2,7 +2,7 @@ class ServicelogsController < ApplicationController
   before_action :set_servicelog, only: [:show, :edit, :update, :destroy]
   before_action :get_autos, :only =>[:new, :edit, :create, :update]
   before_action :get_servicetypes, :only =>[:new, :edit, :create, :update]
-  before_action :authenticate, :except => [:index, :show]
+  before_action :authenticate  
   
   # GET /servicelogs
   # GET /servicelogs.json

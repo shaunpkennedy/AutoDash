@@ -5,18 +5,21 @@ class ServicelogsControllerTest < ActionDispatch::IntegrationTest
     @user = User.create :username => "controlleruser", :password => "controllerpassword", :password_confirmation =>  "controllerpassword"
   end
 
-  test "should get index" do
-    get servicelogs_url, headers: {'HTTP_AUTHORIZATION' => login("controlleruser", "controllerpassword") }
+  test "should get index" do    
+    login(@user.username, @user.password)
+    get servicelogs_url
     assert_response :success
   end
 
-  test "should get new" do
-    get new_servicelog_url, headers: {'HTTP_AUTHORIZATION' => login("controlleruser", "controllerpassword") }
+  test "should get new" do    
+    login(@user.username, @user.password)
+    get new_servicelog_url
     assert_response :success
   end
 
   test "should create servicelog" do
-    assert_difference('Servicelog.count') do
+    assert_difference('Servicelog.count') do    
+      login(@user.username, @user.password)
       post servicelogs_url, params: { servicelog: { auto_id: Auto.first.id, log_date: "2017-02-12 2:01:01", odometer: 69875, service_type_id: ServiceType.first.id, total_cost: 10.99} }, headers: {'HTTP_AUTHORIZATION' => login("controlleruser", "controllerpassword") }
     end
     
@@ -24,25 +27,29 @@ class ServicelogsControllerTest < ActionDispatch::IntegrationTest
   end
   
   test "should not create servicelog when missing auto id" do
-    assert_no_difference('Servicelog.count') do
+    assert_no_difference('Servicelog.count') do    
+      login(@user.username, @user.password)
       post servicelogs_url, params: { servicelog: { log_date: "2017-02-12 2:01:01", odometer: 69875, service_type_id: ServiceType.first.id, total_cost: 10.99} }, headers: {'HTTP_AUTHORIZATION' => login("controlleruser", "controllerpassword") }
     end
     
     assert_response :success
   end  
 
-  test "should show servicelog" do
-    get servicelog_url(Servicelog.last), headers: {'HTTP_AUTHORIZATION' => login("controlleruser", "controllerpassword") }
+  test "should show servicelog" do    
+    login(@user.username, @user.password)
+    get servicelog_url(Servicelog.last)
     assert_response :success
   end
 
-  test "should get edit" do
-    get edit_servicelog_url(Servicelog.last), headers: {'HTTP_AUTHORIZATION' => login("controlleruser", "controllerpassword") }
+  test "should get edit" do    
+    login(@user.username, @user.password)
+    get edit_servicelog_url(Servicelog.last)
     assert_response :success
   end
 
-  test "should update servicelog" do
-    patch servicelog_url(Servicelog.last), params: { servicelog: { auto_id: Auto.first.id, log_date: "2017-02-12 2:14:11", service_type_id: ServiceType.last.id, total_cost: 19.99, notes: "controller test note" } }, headers: {'HTTP_AUTHORIZATION' => login("controlleruser", "controllerpassword") }
+  test "should update servicelog" do    
+    login(@user.username, @user.password)
+    patch servicelog_url(Servicelog.last), params: { servicelog: { auto_id: Auto.first.id, log_date: "2017-02-12 2:14:11", service_type_id: ServiceType.last.id, total_cost: 19.99, notes: "controller test note" } }
     assert_redirected_to servicelog_url(Servicelog.last)
   end
 
@@ -58,7 +65,7 @@ class ServicelogsControllerTest < ActionDispatch::IntegrationTest
   
  private
   def login(username, password)
-    credentials = ActionController::HttpAuthentication::Basic.encode_credentials username, password
-  end
+    post login_url, params: { username: "controlleruser", password: "controllerpassword" }
+  end  
   
 end

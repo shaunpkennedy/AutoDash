@@ -15,11 +15,17 @@
 		</header>
 		<main class="content">
 			<nav>
-				<%= link_to_unless_current 'Home', root_url %>
-				<%= link_to_unless_current 'Users', users_url %>
-				<%= link_to_unless_current 'Autos', autos_url %>
-				<%= link_to_unless_current 'Fuel Logs', fuellogs_url %>
-				<%= link_to_unless_current 'Service Logs', servicelogs_url %>
+				<%= link_to 'Home', root_url %>
+        
+        <% if logged_in? %>
+          <%= link_to 'Profile', edit_user_path(current_user.id) %>
+        <% else %>
+          <%= link_to 'Register', new_user_path %>
+        <% end %>
+				
+        <%= link_to 'Autos', autos_url %>
+				<%= link_to 'Fuel Logs', fuellogs_url %>
+				<%= link_to 'Service Logs', servicelogs_url %>
 			</nav>
 			
 			<% if notice %>
@@ -27,6 +33,17 @@
 					<%= notice %>
 				</div>
 			<% end %>
+      
+      <p id="notice"><%= notice %></p>  
+
+      <% if current_user %>
+        Signed in as <%= current_user.username %> | <%= link_to "Logout", '/logout' %>
+      <% else %>
+        <%= link_to 'Login', '/login' %> | <%= link_to 'Signup', '/signup' %>
+      <% end %>
+
+
+
 
 			<%= yield %>
 		</main>
