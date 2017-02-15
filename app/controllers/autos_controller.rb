@@ -27,8 +27,8 @@ class AutosController < ApplicationController
   # POST /autos.json
   def create
     @auto = Auto.new(auto_params)
-    @title = "Create"
-	
+    @auto.user = current_user
+    
     respond_to do |format|
       if @auto.save
         format.html { redirect_to @auto, notice: 'auto was successfully created.' }

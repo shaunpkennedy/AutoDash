@@ -11,12 +11,6 @@
     </div>
   <% end %>
 
-  
-  <div class="field">
-    <%= f.label :user_id %><br />
-    <%= f.select :user_id, @users, :include_blank => true %>
-  </div>
-  
   <div class="field">
     <%= f.label :title %>
     <%= f.text_field :title %>
@@ -36,6 +30,11 @@
     <%= f.label :auto_year %>
     <%= f.text_area :auto_year %>
   </div>
+  
+  <div class="field">
+    <%= f.label :current_odometer %>
+    <%= f.text_area :current_odometer %>
+  </div>  
 
   <div class="field">
     <%= f.label :oil_change_frequency %>

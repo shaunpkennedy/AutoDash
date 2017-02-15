@@ -28,11 +28,10 @@ class AutosControllerTest < ActionDispatch::IntegrationTest
   
    test "should not create auto when missing user id" do
     assert_no_difference('Auto.count') do
-      login(@user.username, @user.password)
       post autos_url, params: { auto: { title: "auto two", oil_change_frequency: 3000, tire_rotation_frequency: 5000 } }
     end
     
-    assert_response :success
+    assert_redirected_to login_url
   end
 
   test "should show auto" do
