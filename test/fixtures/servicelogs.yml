@@ -3,7 +3,7 @@
 oilchangecrv:
   auto: crv
   log_date: 2017-02-11 12:14:51
-  service_type_id: oilchange
+  service_type: oilchange
   odometer: 49,999
   total_cost: 19.99
   notes: Testing one
@@ -11,7 +11,7 @@ oilchangecrv:
 tireroationsienna:
   auto: sienna
   log_date: 2017-02-12 12:24:21
-  service_type_id: tirerotation
+  service_type: tirerotation
   odometer: 50,123
   total_cost: 9.99
   notes: Testing two
@@ -19,21 +19,21 @@ tireroationsienna:
 oilchangesienna:
   auto: sienna
   log_date: 2017-02-13 12:24:21
-  service_type_id: oilchange
+  service_type: oilchange
   odometer: 50,455
   total_cost: 149.99
   notes: Testing three
  
 walmartoilchange:
   log_date: 2017-02-13 12:24:21
-  service_type_id: oilchange
+  service_type: oilchange
   odometer: 50,455
   total_cost: 149.99
   notes: Not associated with an auto for testing association
   
 samstirerotation:
   log_date: 2017-02-13 12:24:21
-  service_type_id: tirerotation
+  service_type: tirerotation
   odometer: 51,455
   total_cost: 19.99
   notes: Not associated with an auto for testing association

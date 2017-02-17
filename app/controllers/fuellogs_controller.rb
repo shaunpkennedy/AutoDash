@@ -6,7 +6,10 @@ class FuellogsController < ApplicationController
   # GET /fuellogs
   # GET /fuellogs.json
   def index
-    @fuellogs = Fuellog.all
+    @user = User.where(id: current_user.id)
+    @autos = Auto.where(user_id: @user)
+    @fuellogs = Fuellog.where(auto_id: @autos)  
+    #@fuellogs = Fuellog.all
   end
 
   # GET /fuellogs/1
@@ -75,7 +78,7 @@ class FuellogsController < ApplicationController
     end
       
   def get_autos
-   @autos = Auto.all.collect{|a| [a.title, a.id] }
+   @autos = current_user.autos.collect{|a| [a.title, a.id] }
   end          
   
   private

@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-# Servoce Types
+# Service Types
 ServiceType.create name: 'Oil Change'
 ServiceType.create name: 'Tire Rotation'
 ServiceType.create name: 'Filter'

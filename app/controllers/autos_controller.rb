@@ -1,12 +1,11 @@
 class AutosController < ApplicationController
   before_action :set_auto, only: [:show, :edit, :update, :destroy]
-  before_action :get_users, :only =>[:new, :edit, :create, :update]
   before_action :authenticate
   
   # GET /autos
   # GET /autos.json
   def index
-    @autos = Auto.all
+    @autos = current_user.autos
   end
 
   # GET /autos/1
@@ -75,10 +74,6 @@ class AutosController < ApplicationController
       params.require(:auto).permit(:user_id, :title, :make, :model, :auto_year, :current_odometer, :oil_change_frequency, :tire_rotation_frequency)
     end
       
-  def get_users
-   @users = User.all.collect{|u| [u.username, u.id] }
-  end          
-  
   private
     def login(username, password)
       credentials = ActionController::HttpAuthentication::Basic.encode_credentials username, password

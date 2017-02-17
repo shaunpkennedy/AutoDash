@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  has_many :auto
+  has_many :autos
 
   has_secure_password
   

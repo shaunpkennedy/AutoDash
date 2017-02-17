@@ -1,3 +1,3 @@
 class ServiceType < ApplicationRecord
-  belongs_to :servicelog, required: true
+  has_many :servicelogs
 end

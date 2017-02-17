@@ -1,13 +1,19 @@
 class ServicelogsController < ApplicationController
   before_action :set_servicelog, only: [:show, :edit, :update, :destroy]
   before_action :get_autos, :only =>[:new, :edit, :create, :update]
-  before_action :get_servicetypes, :only =>[:new, :edit, :create, :update]
+  before_action :get_servicetypes
   before_action :authenticate  
   
   # GET /servicelogs
   # GET /servicelogs.json
-  def index
-    @servicelogs = Servicelog.all
+  def index    
+    @user = User.where(id: current_user.id)
+    @autos = Auto.where(user_id: @user)
+    @servicelogs = Servicelog.where(auto_id: @autos)
+    #@servicelogs = Servicelog.all
+    #@servicelogs = current_user_autos.includes(:servicelogs)
+    #@servicelogs = @current_user.autos.collect(&:servicelogs)
+    #@servicelogs = current_user.autos.includes(:servicelogs)
   end
 
   # GET /servicelogs/1
@@ -67,7 +73,7 @@ class ServicelogsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_servicelog
-      @servicelog = Servicelog.find(params[:id])
+      @servicelog = Servicelog.includes(:service_type).find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
@@ -76,7 +82,7 @@ class ServicelogsController < ApplicationController
     end
       
   def get_autos
-   @autos = Auto.all.collect{|a| [a.title, a.id] }
+   @autos = current_user.autos.collect{|a| [a.title, a.id] }
   end         
 
   def get_servicetypes
