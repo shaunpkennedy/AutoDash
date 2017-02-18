@@ -1,6 +1,6 @@
 class FuellogsController < ApplicationController
   before_action :set_fuellog, only: [:show, :edit, :update, :destroy]
-  before_action :get_autos, :only =>[:new, :edit, :create, :update]
+  before_action :get_autos, only: [:new, :edit, :create, :update]
   before_action :authenticate
   
   # GET /fuellogs
@@ -67,21 +67,20 @@ class FuellogsController < ApplicationController
   end
 
   private
+    # Never trust parameters from the scary internet, only allow the white list through.
+    def fuellog_params
+      params.require(:fuellog).permit(:log_date, :auto_id, :odometer, :ppg, :gallons, :total_cost)
+    end
+    
     # Use callbacks to share common setup or constraints between actions.
     def set_fuellog
       @fuellog = Fuellog.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def fuellog_params
-      params.require(:fuellog).permit(:log_date, :auto_id, :odometer, :ppg, :gallons, :total_cost)
-    end
-      
-  def get_autos
-   @autos = current_user.autos.collect{|a| [a.title, a.id] }
-  end          
+    def get_autos
+     @autos = current_user.autos.collect{|a| [a.title, a.id] }
+    end          
   
-  private
     def login(username, password)
       credentials = ActionController::HttpAuthentication::Basic.encode_credentials username, password
     end
