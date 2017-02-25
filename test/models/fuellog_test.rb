@@ -27,5 +27,5 @@ class FuellogTest < ActiveSupport::TestCase
     fuellog.valid?
     assert fuellog.errors[:odometer].include?("must be unique")
   end
- 
+  
 end

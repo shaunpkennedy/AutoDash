@@ -28,3 +28,13 @@ pilot:
   current_odometer: 13,500
   oil_change_frequency: 5000
   tire_rotation_frequency: 7500
+
+kia:
+  user: shaun
+  title: Test Car Fillups
+  make: Kia
+  model: Paul
+  auto_year: 2015
+  current_odometer: 50000
+  oil_change_frequency: 5000
+  tire_rotation_frequency: 10000

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170212181451) do
+ActiveRecord::Schema.define(version: 20170219200851) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,11 +33,13 @@ ActiveRecord::Schema.define(version: 20170212181451) do
     t.integer  "auto_id"
     t.datetime "log_date"
     t.integer  "odometer"
-    t.decimal  "ppg"
-    t.decimal  "gallons"
-    t.decimal  "total_cost"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.decimal  "ppg",        precision: 6, scale: 3
+    t.decimal  "gallons",    precision: 6, scale: 3
+    t.decimal  "total_cost", precision: 5, scale: 2
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
+    t.integer  "miles"
+    t.decimal  "mpg",        precision: 4, scale: 1
     t.index ["auto_id"], name: "index_fuellogs_on_auto_id", using: :btree
   end
 
@@ -52,10 +54,10 @@ ActiveRecord::Schema.define(version: 20170212181451) do
     t.datetime "log_date"
     t.integer  "service_type_id"
     t.integer  "odometer"
-    t.decimal  "total_cost"
+    t.decimal  "total_cost",      precision: 5, scale: 2
     t.text     "notes"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",                              null: false
+    t.datetime "updated_at",                              null: false
     t.index ["auto_id"], name: "index_servicelogs_on_auto_id", using: :btree
     t.index ["service_type_id"], name: "index_servicelogs_on_service_type_id", using: :btree
   end

@@ -1,24 +1,22 @@
-service type not working
+db seed fuel logs
 
-
--home
---login or create/register
--users
---if logged in show current user
---else show create/register
--autos
---only show if logged in
-
-
-
+Add miles
+Add mpg
+Rename
 
 View statistics
 -overall mpg
 -cost per mile
--total cost
+-total cost of fuellogs
+-total cost of servicelogs
 -last mpg
+-best mpg
+-total miles tracked
+
 -miles to rotation
 -miles to next oil change
+
+
 
 -log as popout window
 -page/tab titles

@@ -22,3 +22,57 @@ fillup:
   ppg: 2.399
   gallons: 11.999
   total_cost: 28.99
+
+kiaFillUp1:
+    log_date: 2017-02-15 12:16:16
+    odometer: 50000
+    ppg: 2.359
+    gallons: 10
+    total_cost: 23.59
+    miles: 300
+    mpg: 30.0
+    
+kiaFillUp2:
+    log_date: 2017-02-16 12:16:16
+    odometer: 50324
+    ppg: 2.0
+    gallons: 8
+    total_cost: 16.00
+    miles: 324
+    mpg: 40.5
+    
+kiaFillUp3:
+    log_date: 2017-02-17 12:16:16
+    odometer: 50637
+    ppg: 1.0000
+    gallons: 5
+    total_cost: 15.00
+    miles: 313
+    mpg: 20.9
+    
+kiaFillUp4:
+    log_date: 2017-02-18 12:16:16
+    odometer: 50921
+    ppg: 3.000
+    gallons: 15
+    total_cost: 45.00
+    miles: 284
+    mpg: 18.9
+   
+kiaFillUp5:
+    log_date: 2017-02-19 12:16:16
+    odometer: 51173
+    ppg: 2.000
+    gallons: 13
+    total_cost: 26.00
+    miles: 252
+    mpg: 19.4
+    
+kiaFillUp6:
+    log_date: 2017-02-20 12:16:16
+    odometer: 51513
+    ppg: 2.000
+    gallons: 11
+    total_cost: 22.00
+    miles: 340
+    mpg: 30.9
