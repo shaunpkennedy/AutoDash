@@ -32,6 +32,29 @@
  
  
  
+  
+<h3>MPG</h3>
+<p><%= @auto.get_overall_mpg %></p> 
+
+<h3>Last MPG</h3>
+<p><%= @auto.get_most_recent_mpg %></p> 
+
+<h3>Cost Per Mile</h3>
+<p><%= @auto.get_cost_per_mile %></p> 
+
+<h3>Miles</h3>
+<p><%= @auto.get_miles_logged %></p> 
+
+<h3>Total Fuel Cost</h3>
+<p><%= @auto.get_fuel_total_cost %></p> 
+
+<h3>Total Service Cost</h3>
+<p><%= @auto.get_service_total_cost %></p>
+ 
+ 
+ 
+ 
+ 
 </article>
 
 <p><%= link_to 'Back', autos_path %></p>

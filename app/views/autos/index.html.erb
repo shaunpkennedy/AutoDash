@@ -5,40 +5,73 @@
 
 <h1>Autos</h1>
 
-<table>
- <thead>
-  <tr>
-    <th>Title</th>
-    <th>User</th>
-    <th>Make</th>
-    <th>Model</th>
-    <th>Year</th>
-    <th>Odometer</th>
-    <th>Oil Change Frequency</th>
-    <th>Tire Rotation Frequency</th>
-    <th>Last Updated</th>
-    <th colspan="2">&nbsp;</th>
-  </tr>
- </thead>
- 
- <tbody>
-  <% @autos.each do |auto| %>
+<% @autos.each do |auto| %>
+  
+  <table>
+   <thead>
     <tr>
-      <td><%= link_to auto.title, auto %></td>
-      <td><%= auto.user.username rescue "No user" %></td>
-      <td><%= link_to auto.make, auto %></td>
-      <td><%= link_to auto.model, auto %></td>
-      <td><%= link_to auto.auto_year, auto %></td>
-      <td><%= link_to auto.current_odometer, auto %></td>
-      <td><%= link_to auto.oil_change_frequency, auto %></td>      
-      <td><%= link_to auto.tire_rotation_frequency, auto %></td>      
-      <td><%= time_ago_in_words(auto.updated_at) %> ago</td>
-      <td><%= link_to 'Edit', edit_auto_path(auto) %></td>
-      <td><%= button_to 'Destroy', auto, confirm: 'Are you sure?', method: :delete %></td>
+      <th>Title</th>
+      <th>User</th>
+      <th>Make</th>
+      <th>Model</th>
+      <th>Year</th>
+      <th>Odometer</th>
+      <th>Oil Change Frequency</th>
+      <th>Tire Rotation Frequency</th>
+      <th>Last Updated</th>
+      <th colspan="2">&nbsp;</th>
     </tr>
-  <% end %>
- </tbody>
-</table>
+   </thead>
+   
+   <tbody>
+      <tr>
+        <td><%= link_to auto.title, auto %></td>
+        <td><%= auto.user.username rescue "No user" %></td>
+        <td><%= link_to auto.make, auto %></td>
+        <td><%= link_to auto.model, auto %></td>
+        <td><%= link_to auto.auto_year, auto %></td>
+        <td><%= link_to auto.current_odometer, auto %></td>
+        <td><%= link_to auto.oil_change_frequency, auto %></td>      
+        <td><%= link_to auto.tire_rotation_frequency, auto %></td>      
+        <td><%= time_ago_in_words(auto.updated_at) %> ago</td>
+        <td><%= link_to 'Edit', edit_auto_path(auto) %></td>
+        <td><%= button_to 'Destroy', auto, confirm: 'Are you sure?', method: :delete %></td>
+      </tr>
+   </tbody>
+  </table>
+
+  
+  <table>
+   <thead>
+    <tr>
+      <th>MPG</th>
+      <th>Last MPG</th>
+      <th>Cost Per Mile</th>
+      <th>Total Miles</th>
+      <th>Total Fuel Cost</th>
+      <th>Total Service Cost</th>
+    </tr>
+   </thead>
+   
+   <tbody>
+      <tr>
+        <td><%= auto.get_overall_mpg %></td>
+        <td><%= auto.get_most_recent_mpg %></td>
+        <td><%= auto.get_cost_per_mile %></td>
+        <td><%= auto.get_miles_logged %></td>
+        <td><%= auto.get_fuel_total_cost %></td>
+        <td><%= auto.get_service_total_cost %></td>
+      </tr>
+   </tbody>
+  </table>  
+  
+<% end %>
+
+
+
+
+
+
 
 <br>
 
