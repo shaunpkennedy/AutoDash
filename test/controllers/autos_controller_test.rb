@@ -3,6 +3,16 @@ require 'test_helper'
 class AutosControllerTest < ActionDispatch::IntegrationTest
   setup do
     @user = User.create :username => "controlleruser", :password => "controllerpassword", :password_confirmation =>  "controllerpassword"
+    
+    #MPG testing
+    @kia = autos(:kia)
+    @kia.fuellogs << fuellogs(:kiaFillUp1)
+    @kia.fuellogs << fuellogs(:kiaFillUp2)
+    @kia.fuellogs << fuellogs(:kiaFillUp3)
+    @kia.fuellogs << fuellogs(:kiaFillUp4)
+    @kia.fuellogs << fuellogs(:kiaFillUp5)
+    @kia.fuellogs << fuellogs(:kiaFillUp6)
+    
   end
 
   test "should get index" do
@@ -36,7 +46,7 @@ class AutosControllerTest < ActionDispatch::IntegrationTest
 
   test "should show auto" do
     login(@user.username, @user.password)
-    get auto_url(Auto.last)
+    get auto_url(@kia)
     assert_response :success
   end
 

@@ -1,6 +1,7 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 crv:
+  id: 111
   user: shaun
   title: Test Car One
   make: Honda
