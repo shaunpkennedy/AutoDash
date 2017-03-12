@@ -1,34 +1,27 @@
-db seed fuel logs
-
-Add miles
-Add mpg
-Rename
-
 View statistics
--overall mpg
--cost per mile
--total cost of fuellogs
--total cost of servicelogs
--last mpg
--best mpg
--total miles tracked
-
 -miles to rotation
 -miles to next oil change
 
-
-
 -log as popout window
+
 -page/tab titles
+
 -after log in, show autos and stats
 --when click add fuel log for auto, prefill auto 
 --same for service log
+
+-before login make it seem like a page to sell service
+
 -prefill auto 
+
 -add checks
 --is current mileage within so many miles of last log? 
 --more than last odometer reading
+
 -destroy doesn't delete, but disables account
+
 -calculate total cost
+
 -styles
 
 Admin can only see users

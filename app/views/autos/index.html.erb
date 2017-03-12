@@ -1,24 +1,121 @@
 <p id="notice"><%= notice %></p>
-<% if logged_in? %>
- You are logged in as <%= current_user.username %>
-<% end %>
 
 <h1>Autos</h1>
 
-<% @autos.each do |auto| %>
+
+  
+
+  <div class="container">
+    
+    <div class="row">
+    
+      <% @autos.each do |auto| %>    
+      <div class="col-xs-12 col-lg-6">
+        
+        <div class="auto_preview">
+   
+          <h2 class="text-center"><%= link_to auto.title, auto %></h2>
+
+          <div class="row text-center auto_preview_stats">
+            <!--<div class="col-sm-3 auto_preview_img ">
+              <img src="http://placehold.it/200x150">
+            </div>-->
+            
+            <div class="col-sm-4 ">
+              <p>            
+                <strong><%= auto.get_overall_mpg %></strong>
+              </p>
+              <p>
+                MPG
+              </p>
+            </div>
+            
+            <div class="col-sm-4 ">
+              <p>            
+                <strong>$<%= auto.get_most_recent_mpg %></strong>
+              </p>
+              <p>
+                Last MPG
+              </p>
+            </div>
+
+            <div class="col-sm-4 ">
+              <p>            
+                <strong>$<%= auto.get_cost_per_mile %></strong>
+              </p>
+              <p>
+                Cost Per Mile
+              </p>
+            </div>            
+          </div> 
+          
+          
+          <div class="row top-buffer text-center">
+          <div class="auto_preview_stats_minor">
+          
+            <div class="col-sm-3">
+              <p>            
+                <%= auto.get_cost_per_mile %>
+              </p>
+              <p>
+                Best MPG
+              </p>
+            </div>   
+
+            <div class="col-sm-3">
+              <p>            
+                <%= auto.get_cost_per_mile %>
+              </p>
+              <p>
+                Best MPG
+              </p>
+            </div> 
+
+            <div class="col-sm-3">
+              <p>            
+                <%= auto.get_cost_per_mile %>
+              </p>
+              <p>
+                Best MPG
+              </p>
+            </div> 
+
+            <div class="col-sm-3">
+              <p>            
+                <%= auto.get_cost_per_mile %>
+              </p>
+              <p>
+                Best MPG
+              </p>
+            </div> 
+            
+          </div>
+          </div>
+    
+        </div>
+
+      </div>    
+      <% end %>       
+      
+    </div>
+     
+  </div> 
+  
+ 
+  
+  
+  
+  <% @autos.each do |auto| %>
   
   <table>
    <thead>
     <tr>
       <th>Title</th>
       <th>User</th>
-      <th>Make</th>
-      <th>Model</th>
-      <th>Year</th>
       <th>Odometer</th>
-      <th>Oil Change Frequency</th>
-      <th>Tire Rotation Frequency</th>
-      <th>Last Updated</th>
+      <th>MPG</th>
+      <th>Last MPG</th>
+      <th>Cost Per Mile</th>      
       <th colspan="2">&nbsp;</th>
     </tr>
    </thead>
@@ -27,44 +124,16 @@
       <tr>
         <td><%= link_to auto.title, auto %></td>
         <td><%= auto.user.username rescue "No user" %></td>
-        <td><%= link_to auto.make, auto %></td>
-        <td><%= link_to auto.model, auto %></td>
-        <td><%= link_to auto.auto_year, auto %></td>
-        <td><%= link_to auto.current_odometer, auto %></td>
-        <td><%= link_to auto.oil_change_frequency, auto %></td>      
-        <td><%= link_to auto.tire_rotation_frequency, auto %></td>      
-        <td><%= time_ago_in_words(auto.updated_at) %> ago</td>
+        <td><%= auto.current_odometer %></td>
+        <td><%= auto.get_overall_mpg %></td>
+        <td><%= auto.get_most_recent_mpg %></td>
+        <td><%= auto.get_cost_per_mile %></td>                
         <td><%= link_to 'Edit', edit_auto_path(auto) %></td>
         <td><%= button_to 'Destroy', auto, confirm: 'Are you sure?', method: :delete %></td>
       </tr>
    </tbody>
   </table>
 
-  
-  <table>
-   <thead>
-    <tr>
-      <th>MPG</th>
-      <th>Last MPG</th>
-      <th>Cost Per Mile</th>
-      <th>Total Miles</th>
-      <th>Total Fuel Cost</th>
-      <th>Total Service Cost</th>
-    </tr>
-   </thead>
-   
-   <tbody>
-      <tr>
-        <td><%= auto.get_overall_mpg %></td>
-        <td><%= auto.get_most_recent_mpg %></td>
-        <td><%= auto.get_cost_per_mile %></td>
-        <td><%= auto.get_miles_logged %></td>
-        <td><%= auto.get_fuel_total_cost %></td>
-        <td><%= auto.get_service_total_cost %></td>
-      </tr>
-   </tbody>
-  </table>  
-  
 <% end %>
 
 
@@ -73,6 +142,11 @@
 
 
 
+
+
+  
+  
+  
 <br>
 
 <%= link_to 'New auto', new_auto_path %>

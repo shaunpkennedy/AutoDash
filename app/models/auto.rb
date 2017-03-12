@@ -26,7 +26,10 @@ class Auto < ApplicationRecord
   
   def get_most_recent_mpg
     @fuellog = self.fuellogs.order("log_date").last
-    @fuellog.mpg
+    
+    if (@fuellog)
+      @fuellog.mpg
+    end
   end
   
   #def get_previous_mpg

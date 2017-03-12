@@ -9,10 +9,50 @@
   </head>
 
   <body>
+  
+  
+    <div class="container-narrow">
+      <div class="masthead">
+      
+        <ul class="nav nav-pills pull-right">
+          <% if logged_in? %>            
+            <li><%= link_to "Vehicles", autos_url %></li>
+            <li><%= link_to "Fuel Logs", fuellogs_url %></li>
+            <li><%= link_to "Service Logs", servicelogs_url %></li>
+            <li><%= link_to "Profile | " + current_user.username, edit_user_path(current_user.id) %></li>
+            <li><%= link_to "Sign out", "/logout" %> </li>            
+          <% else %>
+            <li><%= link_to "Sign in", "/login" %></li>
+            <li><%= link_to "Sign up", new_user_path %></li>
+          <% end %>
+
+        </ul>      
+        
+        <h3 class="muted"><%= link_to "Auto Dashboard", root_url %></h3>
+        <h5 class="muted">A dashboard for tracking gas mileage, service reminders, and calculating expenses of your vehicles.</h5>
+      </div>
+      <hr />
+      <%= yield %>
+    </div>  
+  
+  
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <% if false %>
+  
 	<div class="container">
-		<header>
-			<h1>Auto Dashboard</h1>
-		</header>
 		<main class="content">
 			<nav>
 				<%= link_to 'Home', root_url %>
@@ -42,10 +82,11 @@
         <%= link_to 'Login', '/login' %> | <%= link_to 'Signup', '/signup' %>
       <% end %>
 
-
-
-
 			<%= yield %>
+      
+      
+      <% end %>
+      
 		</main>
 		<footer>
 			<h4>Copyright <%=Date.today.year %> AutoDash</h4>
