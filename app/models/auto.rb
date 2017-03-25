@@ -47,6 +47,20 @@ class Auto < ApplicationRecord
     @costPerMile.round(3)    
   end
   
+  def get_average_cost_per_gallon
+    @gallons =  self.fuellogs.sum(:gallons)
+    @cost = get_fuel_total_cost
+    @costPerGallon = @cost/@gallons
+    @costPerGallon.round(3)    
+  end
+
+  def get_average_cost_per_fill_up
+    @fillups = self.fuellogs.count
+    @cost = get_fuel_total_cost
+    @costPerFillup = @cost/@fillups
+    @costPerFillup.round(2)    
+  end
+  
   def get_best_mpg
     @mpg = self.fuellogs.maximum(:mpg)
   end
