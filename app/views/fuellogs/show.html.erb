@@ -1,3 +1,28 @@
+<div class="jumbotron">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+      
+        <h2><strong>Fuel Log</strong></h2>
+        
+        <h3><strong>Auto:</strong> <%= h(@fuellog.auto.title) rescue 'No auto found' %></h3>
+        <h3><strong>Date:</strong> <%= @fuellog.log_date %></h3>      
+        <h3><strong>Odometer:</strong> <%= @fuellog.odometer %></h3>        
+        <h3><strong>PPG:</strong> <%= @fuellog.ppg %></h3>
+        <h3><strong>Gallons:</strong> <%= @fuellog.gallons %></h3>
+        <h3><strong>Total Cost:</strong> <%= @fuellog.total_cost %></h3>
+
+           
+        <p>
+          <%= link_to 'Back', fuellogs_path, :class => "btn btn-default btn-lg", :role => "button" %>
+          <%= link_to 'Edit', edit_fuellog_path(@fuellog), :class => "btn btn-primary btn-lg active blue", :role => "button" %>      
+        </p>
+ 
+    </div>
+  </div>
+</div>
+    
+  <% if false %>    
 <article>
  <header>
 	<h2>
@@ -23,3 +48,5 @@
 </article>
 
 <p><%= link_to 'Back', fuellogs_path %></p>
+
+  <% end %>

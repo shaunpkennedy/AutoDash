@@ -7,95 +7,98 @@
 
   <div class="container">
     
-    <div class="row">
+
     
       <% @autos.each do |auto| %>    
-      <div class="col-xs-12 col-lg-6">
-        
-        <div class="auto_preview">
+     <div class="row">     
+      <div class="col-xs-12">
+      
+        <%= link_to auto do %>
+        <div class="auto_preview linkable">
    
-          <h2 class="text-center"><%= link_to auto.title, auto %></h2>
+          <h2 class="text-center"><%= auto.title %></h2>
 
           <div class="row text-center auto_preview_stats">
-            <!--<div class="col-sm-3 auto_preview_img ">
-              <img src="http://placehold.it/200x150">
-            </div>-->
-            
-            <div class="col-sm-4 ">
-              <p>            
-                <strong><%= auto.get_overall_mpg %></strong>
-              </p>
-              <p>
-                MPG
-              </p>
+            <div class="col-xs-image-4 auto_preview_img dashboard-vehicle-image car"">
             </div>
             
-            <div class="col-sm-4 ">
-              <p>            
-                <strong>$<%= auto.get_most_recent_mpg %></strong>
-              </p>
-              <p>
-                Last MPG
-              </p>
-            </div>
+            <div class="col-xs-8 "> 
+              
+              
+                <div class="row">
+                
+                  <div class="col-xs-6 ">          
+                      <strong><%= auto.get_overall_mpg %></strong>
+                    <em>
+                      MPG
+                    </em>
+                  </div>
+                  
+                  <!--<div class="col-xs-4 ">       
+                      <strong>$<%= auto.get_most_recent_mpg %></strong>
+                    <em>
+                      Last MPG
+                    </em>
+                  </div>-->
 
-            <div class="col-sm-4 ">
-              <p>            
-                <strong>$<%= auto.get_cost_per_mile %></strong>
-              </p>
-              <p>
-                Cost Per Mile
-              </p>
-            </div>            
-          </div> 
-          
-          
-          <div class="row top-buffer text-center">
-          <div class="auto_preview_stats_minor">
-          
-            <div class="col-sm-3">
-              <p>            
-                <%= auto.get_cost_per_mile %>
-              </p>
-              <p>
-                Best MPG
-              </p>
-            </div>   
+                  <div class="col-xs-6 ">          
+                      <strong>$<%= auto.get_cost_per_mile %></strong>
+                    <em>
+                      Cost Per Mile
+                    </em>
+                  </div> 
+                  
+                </div> 
+                
+                
+                <div class="row top-buffer text-center">
+                  <div class="auto_preview_stats_minor">
+                  
+                    <div class="col-xs-3">
+                      <%= number_with_delimiter(auto.current_odometer) %>
+                      <em>
+                        Odometer
+                      </em>
+                    </div>   
 
-            <div class="col-sm-3">
-              <p>            
-                <%= auto.get_cost_per_mile %>
-              </p>
-              <p>
-                Best MPG
-              </p>
-            </div> 
+                    <div class="col-xs-3">
+                      <%= auto.get_previous_mpg %>
+                      <em>
+                        Last MPG
+                      </em>
+                    </div> 
 
-            <div class="col-sm-3">
-              <p>            
-                <%= auto.get_cost_per_mile %>
-              </p>
-              <p>
-                Best MPG
-              </p>
-            </div> 
+                    <div class="col-xs-3">
+                      <%= auto.get_best_mpg %>
+                      <em>
+                        Best MPG
+                      </em>
+                    </div> 
 
-            <div class="col-sm-3">
-              <p>            
-                <%= auto.get_cost_per_mile %>
-              </p>
-              <p>
-                Best MPG
-              </p>
-            </div> 
+                    <div class="col-xs-3">
+                      <%= number_to_currency( auto.get_fuel_total_cost, precision: 2) %>
+                      <em>
+                        Fuel Cost
+                      </em>
+                    </div> 
+                    
+                  </div>                
+                </div>
+
+             
             
-          </div>
+            </div>
+            
           </div>
     
-        </div>
+        </div>        
+        <% end %>
 
-      </div>    
-      <% end %>       
+      </div>   
+      
+    </div>      
+      <% end %> 
+             
       
     </div>
      
@@ -104,10 +107,10 @@
  
   
   
-  
+  <% if false %>
   <% @autos.each do |auto| %>
   
-  <table>
+  <table class="table table-condensed table-striped table-bordered">
    <thead>
     <tr>
       <th>Title</th>
@@ -137,6 +140,8 @@
 <% end %>
 
 
+<% end %>
+
 
 
 
@@ -148,5 +153,4 @@
   
   
 <br>
-
-<%= link_to 'New auto', new_auto_path %>
+<%= link_to 'New Auto',  new_auto_path, :class => "btn btn-primary btn-lg active blue", :role => "button" %>      

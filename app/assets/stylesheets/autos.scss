@@ -2,77 +2,118 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+
 .auto_preview {
   border: 1px solid black;
   border-top: 0px;
+  border-radius: 10px;
+  overflow: hidden;
   margin: 10px;
+  padding-right: 10px;
+  padding-left: 10px;
 }
-
-/*.col-sm-12 {
-  padding-right: 0;
-  padding-left: 0;
-}
-
-.col-sm-6 {
-  padding-right: 0;
-  padding-left: 0;
-}*/
 
 .auto_preview h2 {
-  background-color: black;
+  background-color: #15224f;
   color: white;
+  margin: 0;
+  padding: 8px;
+  margin-right: -10px;
+  margin-left: -10px;
 }
 
-.auto_preview a {
-  color: white;
+
+.auto_preview_stats {
+    display: block;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 700;
+    color: #404040;
+    
 }
 
-.auto_preview a:hover {
-  color: gray;
-}
-
-/*.auto_preview img {
-  margin-top: -10px;
-  display: inline-block;
-}
-
-@media (max-width: 440px) {
-
-  .auto_preview_img {
-    display: none;
-  }
-
-}*/
-
-.auto_preview_stats p strong {
-    font-size: 64px;
-    font-weight: 200;
+.auto_preview_stats strong {
+    font-size: 48px;
+    font-weight: 200;    
     margin-bottom: 0;
     height: 75px;
 }
 
-.auto_preview_stats p {
+.auto_preview_stats em {
     display: block;
-    font-size: 10px;
-    fnt-style: normal;
-    font-weight: 700;
-    margin: -5px;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: bold;
+    margin-top: -10px;
+    color: #606060;
 }
 
-/*.auto_preview_stats_minor {
-  background-color: gray;
-  color: orange;
-}*/
-
-.auto_preview_stats_minor p {
+.auto_preview_stats_minor {
     display: block;
-    font-size: 10px;
-    fnt-style: normal;
+    font-size: 28px;
+    font-style: normal;
     font-weight: 700;
-    margin: 0 -9px;
+    padding-bottom: 50px;
 }
 
+.auto_preview_stats_minor em {
+    display: block;
+    font-size: 12px;
+    font-style: normal;
+    margin-top: -6px;
+}
 
 .top-buffer { 
-  margin-top:20px; 
+  margin-top:50px; 
  }
+ 
+ 
+.dashboard-vehicle-image.car {
+    background: url(/assets/27-512.png) no-repeat center center;
+}
+
+.dashboard-vehicle-image {
+    display: inline-block;
+    width: 200px;
+    height: 200px;
+    vertical-align: top;
+    text-indent: -9999px;
+}
+
+
+.col-xs-image-4 {
+  width: 30%;
+  float: left;
+}
+  
+
+@media (max-width:691px){
+  .col-xs-8 {
+     width:95%;
+   }
+
+  .col-xs-image-4{
+     width:99%;
+   }   
+}
+
+
+@media (max-width:500px){
+  .auto_preview_stats_minor {
+      font-size: 16px;
+      font-weight: bold;
+  }
+  
+  .auto_preview_stats_minor em {
+      font-size: 10px;
+      margin: -4px 0;
+  }    
+  
+  .dashboard-vehicle-image {
+    display: none;
+  }
+}
+
+.linkable:hover {
+    background-color: #C8C8C8;
+}

@@ -32,10 +32,13 @@ class Auto < ApplicationRecord
     end
   end
   
-  #def get_previous_mpg
-  #  @fuellog = self.fuellogs.order("log_date").offset(1).last
-  #  @fuellog.mpg
-  #end
+  def get_previous_mpg
+    @fuellog = self.fuellogs.order("log_date").offset(1).last
+    
+    if (@fuellog)
+      @fuellog.mpg
+    end
+  end
   
   def get_cost_per_mile
     @miles = get_miles_logged

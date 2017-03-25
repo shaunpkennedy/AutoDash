@@ -1,49 +1,126 @@
-<%= form_for(fuellog) do |f| %>
-  <% if fuellog.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(fuellog.errors.count, "error") %> prohibited this fuellog from being saved:</h2>
+<div class="jumbotron">
+  <div class="container">
+    <div class="row">
+      <h1>Fuel Log Modification</h1>
+    
+      <div class="col-md-6">
 
-      <ul>
-      <% fuellog.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+      <%= form_for(fuellog) do |f| %>
+        <% if fuellog.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(fuellog.errors.count, "error") %> prohibited this fuellog from being saved:</h2>
+
+            <ul>
+            <% fuellog.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+            </ul>
+          </div>
+        <% end %>
+          
+          <div class="form-group">
+            <%= f.label :auto_id, 'Auto identifier' %>
+            <%= f.select :auto_id, @autos, {include_blank: true}, class: 'form-control' %>           
+          </div>
+          <div class="form-group">
+            <%= f.label :log_date, 'Log Date' %>
+            <%= f.date_field :log_date, class: 'form-control', placeholder: 'Log Date' %> 
+          </div>
+          <div class="form-group">
+            <%= f.label :odometer, 'Odometer' %>
+            <%= f.text_field :odometer, class: 'form-control', placeholder: 'Odometer' %> 
+          </div>
+          <div class="form-group">
+            <%= f.label :ppg, 'Price Per Gallon' %>
+            <%= f.text_field :ppg, class: 'form-control', placeholder: 'Price Per Gallon' %> 
+          </div>
+          <div class="form-group">
+            <%= f.label :gallons, 'Gallons' %>
+            <%= f.text_field :gallons, class: 'form-control', placeholder: 'Gallons' %> 
+          </div>
+          <div class="form-group">
+            <%= f.label :total_cost, 'Total Cost' %>
+            <%= f.text_field :total_cost, class: 'form-control', placeholder: 'Total Cost' %> 
+          </div>
+          
+          <button type="submit" class="btn btn-primary btn-lg">Save</button>
+
+      <% end %>                    
+               
+      </div>
     </div>
-  <% end %>
+  </div>
+</div> 
 
-  
-  <div class="field">
-    <%= f.label :auto_id %><br />
-    <%= f.select :auto_id, @autos, :include_blank => true %>
-  </div>
-  
-  <div class="field">
-    <%= f.label :log_date %>
-    <%= f.date_field :log_date %>
-  </div>
 
-  <div class="field">
-    <%= f.label :odometer %>
-    <%= f.text_area :odometer %>
-  </div>
 
-  <div class="field">
-    <%= f.label :ppg %>
-    <%= f.text_area :ppg %>
+
+<div class="jumbotron">
+  <div class="container">
+    <div class="row">
+      <h1>Fuel Log Modification</h1>
+    
+      <%= form_for(fuellog) do |f| %>
+        <% if fuellog.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(fuellog.errors.count, "error") %> prohibited this fuellog from being saved:</h2>
+
+            <ul>
+            <% fuellog.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+            </ul>
+          </div>
+        <% end %>
+
+
+
+        <div class="col-md-6">
+            <div class="input-group">
+                <span class="input-group-addon">Auto</span>
+                <%= text_field_tag :auto_id, value = nil, class: 'form-control', placeholder: 'Select Auto' %> 
+            </div>
+        </div>    
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+            <div class="input-group">
+                <span class="input-group-addon">Date</span>
+                <%= date_field_tag :log_date, value = nil, class: 'form-control', placeholder: 'Date' %> 
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="input-group">
+                <span class="input-group-addon">Odometer</span>
+                <%= text_field_tag :odometer, value = nil, class: 'form-control', placeholder: 'Odometer' %> 
+            </div>
+        </div>    
+      </div>
+        <div class="row">
+        <div class="col-md-4">
+            <div class="input-group">
+                <span class="input-group-addon">PPG</span>
+                <%= text_field_tag :ppg, value = nil, class: 'form-control', placeholder: 'Price Per Gallon' %> 
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="input-group">
+                <span class="input-group-addon">Gallons</span>
+                <%= text_field_tag :gallons, value = nil, class: 'form-control', placeholder: 'Gallons' %> 
+            </div>
+        </div>  
+        <div class="col-md-4">
+          <div class="input-group">
+              <span class="input-group-addon">Total Cost</span>
+              <%= text_field_tag :total_cost, value = nil, class: 'form-control', placeholder: '$0.00' %> 
+          </div>
+        </div> 
+          
+        <button type="submit" class="btn btn-primary btn-lg">Save</button>
+
+      <% end %>                    
+               
+      </div>
+    </div>
   </div>
-  
-   <div class="field">
-    <%= f.label :gallons %>
-    <%= f.text_area :gallons %>
-  </div>
-  
-   <div class="field">
-    <%= f.label :total_cost %>
-    <%= f.text_area :total_cost %>
-  </div>
-   
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-  
-<% end %>
+</div> 

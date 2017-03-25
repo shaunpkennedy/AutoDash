@@ -1,3 +1,39 @@
+<div class="jumbotron">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+      
+        <h2><strong>Automobile</strong></h2>
+        
+        <h3><strong>Title:</strong> <%= @auto.title %></h3>
+        <h3><strong>User:</strong> <%= h(@auto.user.username) rescue 'No user found' %></h3>      
+        <h3><strong>Make:</strong> <%= @auto.make %></h3>        
+        <h3><strong>Model:</strong> <%= @auto.model %></h3>
+        <h3><strong>Year:</strong> <%= @auto.auto_year %></h3>
+        <h3><strong>Odometer:</strong> <%= @auto.current_odometer %></h3>
+        <h3><strong>Oil Change Frequency:</strong> <%= @auto.oil_change_frequency %></h3>
+        <h3><strong>Tire Rotation Frequency:</strong> <%= @auto.tire_rotation_frequency %></h3>
+        <h3><strong>MPG:</strong> <%= @auto.get_overall_mpg %></h3>
+        <h3><strong>Last MPG:</strong> <%= @auto.get_most_recent_mpg %></h3>
+        <h3><strong>Cost Per Mile:</strong> <%= @auto.get_cost_per_mile %></h3>
+        <h3><strong>Miles:</strong> <%= @auto.get_miles_logged %></h3>
+        <h3><strong>Total Fuel Cost:</strong> <%= @auto.get_fuel_total_cost %></h3>
+        <h3><strong>Total Service Cost:</strong> <%= @auto.get_service_total_cost %></h3>
+           
+        <p>          
+          <%= link_to 'Edit', edit_auto_path(@auto), :class => "btn btn-primary btn-lg active blue", :role => "button" %>      
+          <%= link_to 'Delete', @auto, :title => 'Confirm Deletion', :class => "btn btn-danger btn-sm", :role => "button", method: :delete, data: { confirm: 'Are you sure you want to delete this auto? WARNING: This action can not be undone.' } %>
+        </p>
+        
+        <p>
+          <%= link_to 'Back', autos_path, :role => "button" %>
+        </p>
+    </div>
+  </div>
+</div>
+    
+  <% if false %> 
+
 <article>
   <header>
    <h2>
@@ -51,3 +87,5 @@
 </article>
 
 <p><%= link_to 'Back', autos_path %></p>
+
+  <% end %>

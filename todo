@@ -1,10 +1,14 @@
-View statistics
--miles to rotation
--miles to next oil change
+[Release 1]
+-Dashboard/Homepage after login
+--http://www.fuelly.com/dashboard
+--change colors
 
--log as popout window
+-Vehicle Show/Details
+--http://www.fuelly.com/car/honda/cr-v/2011/spk5512/557042
 
--page/tab titles
+-update odometer
+-calculate total cost
+-consistify bottom links...edit, back, show, dashboard, add, view
 
 -after log in, show autos and stats
 --when click add fuel log for auto, prefill auto 
@@ -12,16 +16,22 @@ View statistics
 
 -before login make it seem like a page to sell service
 
--prefill auto 
+
+
+[Release 2]
+-fix strongs on show views
+-filter logs by auto, timeframe
 
 -add checks
 --is current mileage within so many miles of last log? 
 --more than last odometer reading
 
 -destroy doesn't delete, but disables account
+-Admin can only see users
 
--calculate total cost
+-cancel button when adding, modifing
 
--styles
-
-Admin can only see users
+-Dashboard left menu
+--add fuel log
+--add service log
+--reminders

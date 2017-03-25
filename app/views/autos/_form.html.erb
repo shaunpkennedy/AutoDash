@@ -1,3 +1,64 @@
+<div class="jumbotron">
+  <div class="container">
+    <div class="row">
+      <h1>Automobile Modification</h1>
+    
+      <div class="col-md-6">
+
+      <%= form_for(auto) do |f| %>
+        <% if auto.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(auto.errors.count, "error") %> prohibited this auto from being saved:</h2>
+
+            <ul>
+            <% auto.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+            </ul>
+          </div>
+        <% end %>
+          
+          <div class="form-group">
+            <%= f.label :title, 'Title' %>
+            <%= f.text_field :title, class: 'form-control', placeholder: 'Title' %> 
+          </div>
+          <div class="form-group">
+            <%= f.label :make, 'Make' %>
+            <%= f.text_field :make, class: 'form-control', placeholder: 'Make' %> 
+          </div>
+          <div class="form-group">
+            <%= f.label :model, 'Model' %>
+            <%= f.text_field :model, class: 'form-control', placeholder: 'Model' %> 
+          </div>          
+          <div class="form-group">
+            <%= f.label :auto_year, 'Year' %>
+            <%= f.text_field :auto_year, class: 'form-control', placeholder: 'Year' %> 
+          </div>
+          <div class="form-group">
+            <%= f.label :current_odometer, 'Odometer' %>
+            <%= f.text_field :current_odometer, class: 'form-control', placeholder: 'Odometer' %> 
+          </div>          
+          <div class="form-group">
+            <%= f.label :oil_change_frequency, 'Oil Change Mileage Frequency' %>
+            <%= f.text_field :oil_change_frequency, class: 'form-control', placeholder: 'Oil Change Mileage Frequency' %> 
+          </div>
+          <div class="form-group">
+            <%= f.label :tire_rotation_frequency, 'Tire Rotation Mileage Frequency' %>
+            <%= f.text_field :tire_rotation_frequency, class: 'form-control', placeholder: 'Tire Rotation Mileage Frequency' %> 
+          </div>
+          
+          <button type="submit" class="btn btn-primary btn-lg">Save</button>
+
+      <% end %>                    
+               
+      </div>
+    </div>
+  </div>
+</div> 
+
+
+
+  <% if false %>  
 <%= form_for(auto) do |f| %>
   <% if auto.errors.any? %>
     <div id="error_explanation">
@@ -50,4 +111,5 @@
     <%= f.submit %>
   </div>
   
+<% end %>
 <% end %>
