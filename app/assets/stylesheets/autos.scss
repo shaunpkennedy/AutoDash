@@ -2,6 +2,13 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+@import "http://github.hubspot.com/odometer/themes/odometer-theme-car.css";
+
+
+
+/*******************/
+/*** Autos Index ***/
+/*******************/
 
 .auto_preview {
   border: 1px solid black;
@@ -117,3 +124,60 @@
 .linkable:hover {
     background-color: #C8C8C8;
 }
+
+
+/******************/
+/*** Autos Show ***/
+/******************/
+
+.auto-info {
+  padding-bottom: 20px;
+}
+
+.show-title {
+  font-size: 3.5em;
+}
+
+.odometer {
+    font-size: 3em;
+}
+
+.odometer.odometer-auto-theme, .odometer.odometer-theme-car {
+  margin: 20px 0;
+}
+
+.stat-title {
+  font-size: 2.5em;
+  color: #5d645c;
+}
+
+.stat-box {
+    /*background-color: #FFF;
+    border: 1px solid #c4c4c4;
+    border-radius: 5px;
+    margin: 20px 0;*/
+}
+
+.stat-box.panel-body {
+  padding: 3px;
+}
+
+.stat-box-mpg h5 {
+  font-size: 3em;
+  font-weight: bold;
+}
+
+.stat-box-cost h5 {
+  font-size: 2em;
+  font-weight: bold;
+}
+
+.stat-box-color-callout {
+  color: #ffaa00;
+}
+
+.stat-box p {
+  font-size: .9em;
+  font-weight: bold;
+}
+
