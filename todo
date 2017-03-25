@@ -19,6 +19,7 @@
 
 
 [Release 2]
+-nav responsiveness
 -fix strongs on show views
 -filter logs by auto, timeframe
 
