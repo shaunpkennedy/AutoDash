@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170219200851) do
+ActiveRecord::Schema.define(version: 20170326193523) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,6 +43,27 @@ ActiveRecord::Schema.define(version: 20170219200851) do
     t.index ["auto_id"], name: "index_fuellogs_on_auto_id", using: :btree
   end
 
+  create_table "reminder_types", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "reminders", force: :cascade do |t|
+    t.integer  "auto_id"
+    t.integer  "service_type_id"
+    t.integer  "reminder_type_id"
+    t.integer  "miles"
+    t.integer  "time"
+    t.integer  "next_odometer"
+    t.text     "notes"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.index ["auto_id"], name: "index_reminders_on_auto_id", using: :btree
+    t.index ["reminder_type_id"], name: "index_reminders_on_reminder_type_id", using: :btree
+    t.index ["service_type_id"], name: "index_reminders_on_service_type_id", using: :btree
+  end
+
   create_table "service_types", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
@@ -71,6 +92,9 @@ ActiveRecord::Schema.define(version: 20170219200851) do
 
   add_foreign_key "autos", "users"
   add_foreign_key "fuellogs", "autos"
+  add_foreign_key "reminders", "autos"
+  add_foreign_key "reminders", "reminder_types"
+  add_foreign_key "reminders", "service_types"
   add_foreign_key "servicelogs", "autos"
   add_foreign_key "servicelogs", "service_types"
 end
