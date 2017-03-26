@@ -5,6 +5,15 @@ class Auto < ApplicationRecord
   has_many :fuellogs
   has_many :servicelogs
   
+  #TODO: this could change where we don't update/save odometer, but odometer is always pulled using similar logic
+  def update_current_odometer!
+    @lastFuelLogOdometer = self.fuellogs.maximum(:odometer).to_i
+    @lastServiceLogOdometer =self.servicelogs.maximum(:odometer).to_i
+    @newOdometer = [@lastFuelLogOdometer, @lastServiceLogOdometer].max
+    
+    self.update_column(:current_odometer, @newOdometer)
+  end
+  
   def get_fuel_total_cost
     self.fuellogs.sum(:total_cost)
   end

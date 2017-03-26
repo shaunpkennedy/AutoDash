@@ -1,21 +1,18 @@
 [Release 1]
--Dashboard/Homepage after login
---http://www.fuelly.com/dashboard
---change colors
-
--Vehicle Show/Details
---http://www.fuelly.com/car/honda/cr-v/2011/spk5512/557042
-
 -update odometer
--calculate total cost
+-service reminders
 -consistify bottom links...edit, back, show, dashboard, add, view
+-first fillup, use miles and odometer
+
 
 -after log in, show autos and stats
 --when click add fuel log for auto, prefill auto 
 --same for service log
 
 -before login make it seem like a page to sell service
+--big graphic block
 
+-update odometer or pull max for display?
 
 
 [Release 2]
@@ -32,7 +29,4 @@
 
 -cancel button when adding, modifing
 
--Dashboard left menu
---add fuel log
---add service log
---reminders
+-give option odometer or miles
