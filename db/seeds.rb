@@ -42,3 +42,11 @@ Fuellog.create(log_date: DateTime.parse('8/5/2017' ), odometer: '54638', ppg: '4
 Fuellog.create(log_date: DateTime.parse('8/17/2017'), odometer: '54942', ppg: '1.000', gallons: '11',  total_cost: '11.00', miles: '304', mpg: '27.6', auto_id: '1'  )
 
 puts 'Finished loading FuelLogs'
+
+
+# Reminder Types
+ReminderType.create name: 'Distance'
+ReminderType.create name: 'Time'
+ReminderType.create name: 'Distance or Time'
+
+puts 'Created reminder types.'

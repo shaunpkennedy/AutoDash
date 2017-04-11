@@ -1,0 +1,22 @@
+<div class="jumbotron">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+      
+        <h2><strong>Reminders</strong></h2>
+        
+        <h3><strong>Auto:</strong> <%= h(@reminder.auto.title) rescue 'No auto found' %></h3>
+        <h3><strong>Service Type:</strong> <%= h(@reminder.service_type.name) rescue 'No service found' %></h3>   
+        <h3><strong>Reminder Type:</strong> <%= h(@reminder.reminder_type.name) rescue 'No reminder type found' %></h3>   
+        <h3><strong>Miles:</strong> <%= @reminder.miles %></h3>        
+        <h3><strong>Months:</strong> <%= @reminder.time %></h3>  
+        <h3><strong>Notes:</strong> <%= @reminder.notes %></h3>
+           
+        <p>
+          <%= link_to 'Back', reminders_path, :class => "btn btn-default btn-lg", :role => "button" %>
+          <%= link_to 'Edit', edit_reminder_path(@reminder), :class => "btn btn-primary btn-lg active blue", :role => "button" %>      
+        </p>
+ 
+    </div>
+  </div>
+</div>

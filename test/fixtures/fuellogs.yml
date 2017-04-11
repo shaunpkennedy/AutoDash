@@ -17,6 +17,7 @@ siennafillup:
   total_cost: 29.99
  
 fillup:
+  auto: sienna
   log_date: 2017-02-14 12:16:16
   odometer: 88,987
   ppg: 2.399
@@ -24,6 +25,7 @@ fillup:
   total_cost: 28.99
 
 kiaFillUp1:
+    auto: kia
     log_date: 2017-02-15 12:16:16
     odometer: 50000
     ppg: 2.359
@@ -33,6 +35,7 @@ kiaFillUp1:
     mpg: 30.0
     
 kiaFillUp2:
+    auto: kia
     log_date: 2017-02-16 12:16:16
     odometer: 50324
     ppg: 2.0
@@ -42,15 +45,17 @@ kiaFillUp2:
     mpg: 40.5
     
 kiaFillUp3:
+    auto: kia
     log_date: 2017-02-17 12:16:16
     odometer: 50637
     ppg: 1.0000
     gallons: 5
     total_cost: 15.00
     miles: 313
-    mpg: 20.9
+    mpg: 62.6
     
 kiaFillUp4:
+    auto: kia
     log_date: 2017-02-18 12:16:16
     odometer: 50921
     ppg: 3.000
@@ -60,6 +65,7 @@ kiaFillUp4:
     mpg: 18.9
    
 kiaFillUp5:
+    auto: kia
     log_date: 2017-02-19 12:16:16
     odometer: 51173
     ppg: 2.000
@@ -69,6 +75,7 @@ kiaFillUp5:
     mpg: 19.4
     
 kiaFillUp6:
+    auto: kia
     log_date: 2017-02-20 12:16:16
     odometer: 51513
     ppg: 2.000

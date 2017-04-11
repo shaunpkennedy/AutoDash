@@ -53,22 +53,22 @@ class AutoTest < ActiveSupport::TestCase
   
   test "should calculate total fuel cost correctly" do
     @totalCost = @kia.get_fuel_total_cost     
-    assert_equal(@totalCost, 147.59)
+    assert_equal(147.59, @totalCost)
   end  
   
   test "should return total miles logged" do
     @miles = @kia.get_miles_logged
-    assert_equal(@miles, 1813)
+    assert_equal(1813, @miles)
   end
   
   test "should calculate overall miles per gallon correctly" do
     @mpg = @kia.get_overall_mpg
-    assert_equal(@mpg, 29.2)
+    assert_equal(29.2, @mpg)
   end
   
   test "should return most recent mpg" do  
     @mostRecentMpg = @kia.get_most_recent_mpg
-    assert_equal(@mostRecentMpg, 30.9)  
+    assert_equal(30.9, @mostRecentMpg)  
   end  
   
   #test "should return previous mpg" do  
@@ -78,7 +78,7 @@ class AutoTest < ActiveSupport::TestCase
   
   test "should calculate cost per mile" do
     @costPerMile = @kia.get_cost_per_mile
-    assert_equal(@costPerMile, 0.081)
+    assert_equal(0.081, @costPerMile)
   end
   
   test "should return difference between most recent two mpg's" do
@@ -86,7 +86,7 @@ class AutoTest < ActiveSupport::TestCase
   
   test "should return best/highest mpg" do
     @mpg = @kia.get_best_mpg    
-    assert_equal(@mpg, 40.5)
+    assert_equal(62.6, @mpg)
   
   end
   

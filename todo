@@ -1,6 +1,14 @@
 [Release 1]
--update odometer
+-fix auto tests...which broke after adding miles/mpg calculations
+
+-update odometer or use max for display
 -service reminders
+--test
+--display
+--test
+--add service log from reminders
+
+
 -consistify bottom links...edit, back, show, dashboard, add, view
 -first fillup, use miles and odometer
 
@@ -13,9 +21,11 @@
 --big graphic block
 
 -update odometer or pull max for display?
-
+-after save unit test
+-remove frequency from auto
 
 [Release 2]
+-rename reminder time to months?
 -nav responsiveness
 -fix strongs on show views
 -filter logs by auto, timeframe

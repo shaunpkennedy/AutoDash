@@ -1,0 +1,38 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Reminders</h1>
+
+<table class="table table-condensed table-striped table-bordered">
+ <thead>
+  <tr>
+    <th>Auto</th>
+    <th>Service Type</th>
+    <th>Reminder Type</th>
+    <th>Miles</th>
+    <th>Months</th>
+    <th>Notes</th>
+    <th>Last Updated</th>
+    <th colspan="2">&nbsp;</th>
+  </tr>
+ </thead>
+ 
+ <tbody>
+  <% @reminders.each do |reminder| %>
+    <tr>
+      <td><%= reminder.auto.title rescue "No auto found" %></td>
+      <td><%= reminder.service_type.name rescue "No service type found" %></td>
+      <td><%= reminder.reminder_type.name rescue "No reminder type found" %></td>
+      <td><%= link_to reminder.miles, reminder %></td>
+      <td><%= link_to reminder.time, reminder %></td>  
+      <td><%= link_to reminder.notes, reminder %></td>     
+      <td><%= time_ago_in_words(reminder.updated_at) %> ago</td>
+      <td><%= link_to 'Edit', edit_reminder_path(reminder) %></td>
+      <td><%= button_to 'Destroy', reminder, confirm: 'Are you sure?', method: :delete %></td>
+    </tr>
+  <% end %>
+ </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New reminder', new_reminder_path %>

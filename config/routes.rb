@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   
-  
+  resources :reminders
   resources :servicelogs
   resources :fuellogs
   resources :autos

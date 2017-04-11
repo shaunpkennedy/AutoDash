@@ -1,0 +1,107 @@
+<div class="jumbotron">
+  <div class="container">
+    <div class="row">
+      <h1>Reminder Modification</h1>
+    
+      <div class="col-md-6">
+
+      <%= form_for(reminder) do |f| %>
+        <% if reminder.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(reminder.errors.count, "error") %> prohibited this reminder from being saved:</h2>
+
+            <ul>
+            <% reminder.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+            </ul>
+          </div>
+        <% end %>
+          
+          <div class="form-group">
+            <%= f.label :auto_id, 'Auto identifier' %>
+            <%= f.select :auto_id, @autos, {include_blank: true}, class: 'form-control' %>           
+          </div>
+          <div class="form-group">
+            <%= f.label :service_type_id, 'Service Type' %>
+            <%= f.select :service_type_id, @service_types, {include_blank: true}, class: 'form-control' %>           
+          </div>        
+          <div class="form-group">
+            <%= f.label :reminder_type_id, 'Reminder Type' %>
+            <%= f.select :reminder_type_id, @reminder_types, {include_blank: true}, class: 'form-control' %>           
+          </div>             
+          <div class="form-group">
+            <%= f.label :miles, 'Miles' %>
+            <%= f.text_field :miles, class: 'form-control', placeholder: 'Miles' %> 
+          </div>
+          <div class="form-group">
+            <%= f.label :time, 'Months' %>
+            <%= f.text_field :time, class: 'form-control', placeholder: 'Months' %> 
+          </div>
+          <div class="form-group">
+            <%= f.label :notes, 'Notes' %>
+            <%= f.text_area :notes, class: 'form-control', placeholder: 'Notes' %> 
+          </div>
+          
+          <button type="submit" class="btn btn-primary btn-lg">Save</button>
+
+      <% end %>                    
+               
+      </div>
+    </div>
+  </div>
+</div> 
+
+
+
+  <% if false %>  
+<%= form_for(reminder) do |f| %>
+  <% if reminder.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(reminder.errors.count, "error") %> prohibited this reminder from being saved:</h2>
+
+      <ul>
+      <% reminder.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  
+  <div class="field">
+    <%= f.label :auto_id %><br />
+    <%= f.select :auto_id, @autos, :include_blank => true %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :log_date %>
+    <%= f.date_field :log_date %>
+  </div>
+
+  <div class="field">
+    <%= f.label :odometer %>
+    <%= f.text_area :odometer %>
+  </div>
+  
+  <div class="field">
+   <%= f.label :service_type_id %><br />
+   <%= f.select :service_type_id, @service_types, :include_blank => true %>
+  </div>  
+  
+  <div class="field">
+    <%= f.label :total_cost %>
+    <%= f.text_area :total_cost %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :notes %>
+    <%= f.text_area :notes %>
+  </div>
+   
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+  
+<% end %>
+<% end %>

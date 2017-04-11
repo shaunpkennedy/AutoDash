@@ -28,7 +28,7 @@
           </div>
           <div class="form-group">
             <%= f.label :odometer, 'Odometer' %>
-            <%= f.text_field :odometer, class: 'form-control', placeholder: 'Odometer' %> 
+            <%= f.text_field :odometer, class: 'form-control', placeholder: 'Odometer' %>             
           </div>
           <div class="form-group">
             <%= f.label :ppg, 'Price Per Gallon' %>
@@ -53,8 +53,24 @@
 </div> 
 
 
+<script>
+  $("#fuellog_ppg").on(" paste keyup", function() {
+     calculateTotalCost();
+  });
 
+  $("#fuellog_gallons").on(" paste keyup", function() {
+    calculateTotalCost();        
+  });
 
+  function calculateTotalCost() {
+          var a = parseFloat($('input[id=fuellog_ppg]').val());
+          var b = parseFloat($('input[id=fuellog_gallons]').val());
+          var total = a*b || 0;
+          $('#fuellog_total_cost').val(parseFloat(total).toFixed(2));
+          
+}
+</script>
+ 
 <div class="jumbotron">
   <div class="container">
     <div class="row">
