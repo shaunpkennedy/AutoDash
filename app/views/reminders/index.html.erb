@@ -11,6 +11,7 @@
     <th>Miles</th>
     <th>Months</th>
     <th>Notes</th>
+    <th>Completed Date</th>
     <th>Last Updated</th>
     <th colspan="2">&nbsp;</th>
   </tr>
@@ -24,7 +25,8 @@
       <td><%= reminder.reminder_type.name rescue "No reminder type found" %></td>
       <td><%= link_to reminder.miles, reminder %></td>
       <td><%= link_to reminder.time, reminder %></td>  
-      <td><%= link_to reminder.notes, reminder %></td>     
+      <td><%= link_to reminder.notes, reminder %></td>    
+      <td><%= link_to reminder.completed_date, reminder %></td>        
       <td><%= time_ago_in_words(reminder.updated_at) %> ago</td>
       <td><%= link_to 'Edit', edit_reminder_path(reminder) %></td>
       <td><%= button_to 'Destroy', reminder, confirm: 'Are you sure?', method: :delete %></td>

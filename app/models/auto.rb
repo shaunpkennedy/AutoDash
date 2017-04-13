@@ -4,6 +4,7 @@ class Auto < ApplicationRecord
   validates :title, uniqueness: {message: "must be unique" }
   has_many :fuellogs
   has_many :servicelogs
+  has_many :reminders
   
   #TODO: this could change where we don't update/save odometer, but odometer is always pulled using similar logic
   def update_current_odometer!
@@ -19,7 +20,7 @@ class Auto < ApplicationRecord
   end
 
   def get_miles_logged
-    @miles = self.fuellogs.sum(:miles)
+    self.fuellogs.sum(:miles)
   end  
   
   def get_service_total_cost
@@ -71,9 +72,11 @@ class Auto < ApplicationRecord
   end
   
   def get_best_mpg
-    @mpg = self.fuellogs.maximum(:mpg)
+    self.fuellogs.maximum(:mpg)
   end
   
-
+  def get_active_reminders
+    self.reminders.where(completed_date: nil)
+  end
   
 end

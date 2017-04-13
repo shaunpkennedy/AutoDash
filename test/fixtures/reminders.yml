@@ -1,19 +1,26 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  auto: one
-  service_type: one
-  reminder_type: one
-  miles: 1
-  time: 1
-  next_odometer: 1
+oilChangeReminder:
+  service_type: oilchange
+  reminder_type: milesType
+  miles: 3000
+  time: 12
+  next_odometer: 51613
   notes: MyText
 
-two:
-  auto: two
-  service_type: two
-  reminder_type: two
-  miles: 1
+tireRotationReminder:
+  service_type: tirerotation
+  reminder_type: timeType
+  miles: 10000
   time: 1
-  next_odometer: 1
+  next_odometer: 61513
+  notes: MyText
+
+expiredReminder:
+  service_type: oilchange
+  reminder_type: milesOrTimeType
+  miles: 10000
+  time: 1
+  next_odometer: 1000
+  completed_date: 2017-01-01
   notes: MyText

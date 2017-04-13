@@ -22,6 +22,7 @@
             <li><%= link_to "Vehicles", autos_url %></li>
             <li><%= link_to "Fuel Logs", fuellogs_url %></li>
             <li><%= link_to "Service Logs", servicelogs_url %></li>
+            <li><%= link_to "Reminders", reminders_url %></li>
             <li><%= link_to "Profile | " + current_user.username, edit_user_path(current_user.id) %></li>
             <li><%= link_to "Sign out", "/logout" %> </li>            
           <% else %>

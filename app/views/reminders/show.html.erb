@@ -9,8 +9,9 @@
         <h3><strong>Service Type:</strong> <%= h(@reminder.service_type.name) rescue 'No service found' %></h3>   
         <h3><strong>Reminder Type:</strong> <%= h(@reminder.reminder_type.name) rescue 'No reminder type found' %></h3>   
         <h3><strong>Miles:</strong> <%= @reminder.miles %></h3>        
-        <h3><strong>Months:</strong> <%= @reminder.time %></h3>  
+        <h3><strong>Months:</strong> <%= @reminder.time %></h3>          
         <h3><strong>Notes:</strong> <%= @reminder.notes %></h3>
+        <h3><strong>Completed Date:</strong> <%= @reminder.completed_date %></h3>
            
         <p>
           <%= link_to 'Back', reminders_path, :class => "btn btn-default btn-lg", :role => "button" %>

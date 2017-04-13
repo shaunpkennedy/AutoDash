@@ -73,7 +73,7 @@ class RemindersController < ApplicationController
   
     # Never trust parameters from the scary internet, only allow the white list through.
     def reminder_params
-      params.require(:reminder).permit(:auto_id, :service_type_id, :reminder_type_id, :miles, :time, :next_odometer, :notes)
+      params.require(:reminder).permit(:auto_id, :service_type_id, :reminder_type_id, :miles, :time, :next_odometer, :notes, :completed_date)
     end
   
     # Use callbacks to share common setup or constraints between actions.

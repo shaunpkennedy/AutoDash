@@ -1,10 +1,10 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
+milesType:
   name: Miles
 
-two:
+timeType:
   name: Time
 
-three:
+milesOrTimeType:
   name: Miles or Time

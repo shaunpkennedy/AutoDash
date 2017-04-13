@@ -43,12 +43,19 @@ class AutoTest < ActiveSupport::TestCase
   end
   
   test "association of one auto and two service logs" do
-  
     @auto.servicelogs << servicelogs(:walmartoilchange)
     @auto.servicelogs << servicelogs(:samstirerotation)
     @auto.save
     
     assert_equal 2, @auto.reload.servicelogs.size
+  end 
+
+  test "association of one auto and two reminders" do
+    @auto.reminders << reminders(:oilChangeReminder)
+    @auto.reminders << reminders(:tireRotationReminder) 
+    @auto.save
+    
+    assert_equal 2, @auto.reload.reminders.size
   end 
   
   test "should calculate total fuel cost correctly" do
@@ -89,6 +96,17 @@ class AutoTest < ActiveSupport::TestCase
     assert_equal(62.6, @mpg)
   
   end
+
+  test "should return active reminders" do
+    @auto.reminders << reminders(:oilChangeReminder)
+    @auto.reminders << reminders(:tireRotationReminder) 
+    @auto.reminders << reminders(:expiredReminder) 
+    @activeReminders = @auto.get_active_reminders
+    
+    assert_equal(2, @activeReminders.count)    
+  end
+
+
   
   test "should return miles to next oil change" do
   end

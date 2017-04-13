@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170326193523) do
+ActiveRecord::Schema.define(version: 20170413014944) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -59,6 +59,7 @@ ActiveRecord::Schema.define(version: 20170326193523) do
     t.text     "notes"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
+    t.datetime "completed_date"
     t.index ["auto_id"], name: "index_reminders_on_auto_id", using: :btree
     t.index ["reminder_type_id"], name: "index_reminders_on_reminder_type_id", using: :btree
     t.index ["service_type_id"], name: "index_reminders_on_service_type_id", using: :btree
