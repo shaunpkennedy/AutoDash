@@ -53,7 +53,7 @@ GEM
     crass (1.0.5)
     erubi (1.9.0)
     execjs (2.7.0)
-    ffi (1.11.3-x86-mingw32)
+    ffi (1.11.3-x64-mingw32)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
     i18n (1.7.0)
@@ -74,9 +74,9 @@ GEM
     mini_portile2 (2.4.0)
     minitest (5.13.0)
     nio4r (2.5.2)
-    nokogiri (1.10.7-x86-mingw32)
+    nokogiri (1.10.7-x64-mingw32)
       mini_portile2 (~> 2.4.0)
-    pg (0.21.0-x86-mingw32)
+    pg (1.1.4-x64-mingw32)
     puma (3.12.2)
     rack (2.0.7)
     rack-test (1.1.0)
@@ -148,7 +148,7 @@ GEM
     websocket-extensions (0.1.4)
 
 PLATFORMS
-  x86-mingw32
+  x64-mingw32
 
 DEPENDENCIES
   bcrypt (~> 3.1.7)
@@ -156,7 +156,7 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   jbuilder (~> 2.5)
   jquery-rails
-  pg (~> 0.18)
+  pg (~> 1.1.4)
   puma (~> 3.12.1)
   rails (~> 5.1.0)
   sass-rails (~> 5.0)
@@ -166,7 +166,7 @@ DEPENDENCIES
   web-console (>= 3.3.0)
 
 RUBY VERSION
-   ruby 2.3.3p222
+   ruby 2.5.7p206
 
 BUNDLED WITH
-   1.15.3
+   2.0.2
