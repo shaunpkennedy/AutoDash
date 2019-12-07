@@ -69,6 +69,18 @@
       
         <div class="col-xs-12 col-sm-5">          
           <h1 class="show-title">Service Reminders</h1>
+          
+          <div class="row text-center auto_reminders">
+            <% @auto.get_active_reminders.each do |reminder| %>    
+            <div class="col-xs-12">
+              <%= reminder.service_type.name %>
+              <%= reminder.miles %>
+              <%= reminder.time %>                      
+            </div>
+            <% end %>
+          </div>
+          
+          
         </div>
 
         <div class="col-xs-12 col-sm-7"> 

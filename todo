@@ -6,6 +6,7 @@
 
 -service reminders
 --display
+--calculate miles to reminder
 --add service log from reminders
 
 

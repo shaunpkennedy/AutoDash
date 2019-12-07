@@ -9,8 +9,8 @@
     
 
     
-      <% @autos.each do |auto| %>    
-     <div class="row">     
+    <% @autos.each do |auto| %>    
+    <div class="row">     
       <div class="col-xs-12">
       
         <%= link_to auto do %>
@@ -90,7 +90,18 @@
             </div>
             
           </div>
-    
+          
+          
+          <div class="row text-center auto_reminders">
+            <% auto.get_active_reminders.each do |reminder| %>    
+            <div class="col-xs-12">
+              <%= reminder.service_type.name %>
+              <%= reminder.miles %>
+              <%= reminder.time %>                      
+            </div>
+            <% end %>
+          </div>
+          
         </div>        
         <% end %>
 
